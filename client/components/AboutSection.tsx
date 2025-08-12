@@ -8,11 +8,7 @@ export default function AboutSection() {
 
         {/* Text Content - Heading */}
         <div className="flex flex-col items-start justify-start absolute left-0 top-[30px] w-[570px] z-1 gap-3">
-          <div className="flex flex-col justify-start overflow-wrap-anywhere relative w-full whitespace-pre-wrap">
-            <h2 className="text-[#030712] font-general-sans text-5xl font-medium leading-[67.2px] overflow-wrap-anywhere whitespace-pre-wrap">
-              The Art of Coffee
-            </h2>
-          </div>
+          <div className="flex flex-col justify-start overflow-wrap-anywhere relative w-full whitespace-pre-wrap" />
         </div>
 
 
