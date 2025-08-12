@@ -6,7 +6,7 @@ export default function ProductsSection() {
       description: "Ground coffee, medium roast",
       price: "$19.99",
       image: "https://framerusercontent.com/images/NXttOnsmf4ONyIuiMGkBzv7ECU.jpg",
-      href: "https://klane.framer.website/shop/kozmo"
+      href: "/product/kozmo"
     },
     {
       id: 2,
@@ -14,7 +14,7 @@ export default function ProductsSection() {
       description: "Ground coffee, light roast",
       price: "$24.99",
       image: "https://framerusercontent.com/images/nuTc250d2Y6Wnx4FdH82PqKsYA.jpg?scale-down-to=1024",
-      href: "https://klane.framer.website/shop/lunar"
+      href: "/product/lunar"
     },
     {
       id: 3,
@@ -22,7 +22,7 @@ export default function ProductsSection() {
       description: "Ground coffee, medium roast",
       price: "$14.99",
       image: "https://framerusercontent.com/images/2mnN6p3fJB8lHlsdZ1TEjQv2ayU.jpg?scale-down-to=1024",
-      href: "https://klane.framer.website/shop/the-one"
+      href: "/product/the-one"
     },
     {
       id: 4,
@@ -30,7 +30,7 @@ export default function ProductsSection() {
       description: "Ground coffee, light roast",
       price: "$19.99",
       image: "https://framerusercontent.com/images/5c3PIy4m4YvRO0MIbc1NeBfMaXU.jpg?scale-down-to=1024",
-      href: "https://klane.framer.website/shop/arkan"
+      href: "/product/arkan"
     },
     {
       id: 5,
@@ -38,7 +38,7 @@ export default function ProductsSection() {
       description: "Ground coffee, medium roast",
       price: "$19.99",
       image: "https://framerusercontent.com/images/5SrlAPZTOT6JPRKJyGo6o4Zfxog.jpg?scale-down-to=1024",
-      href: "https://klane.framer.website/shop/nairo"
+      href: "/product/nairo"
     },
     {
       id: 6,
@@ -46,7 +46,7 @@ export default function ProductsSection() {
       description: "Ground coffee, medium roast",
       price: "$19.99",
       image: "https://framerusercontent.com/images/gsSLneJqKhA2p3ZtJxf4rM1a4.jpg",
-      href: "https://klane.framer.website/shop/krishna"
+      href: "/product/krishna"
     },
     {
       id: 7,
@@ -54,7 +54,7 @@ export default function ProductsSection() {
       description: "Ground coffee, double medium roast",
       price: "$34.99",
       image: "https://framerusercontent.com/images/NXttOnsmf4ONyIuiMGkBzv7ECU.jpg",
-      href: "https://klane.framer.website/shop/kozmo-plus"
+      href: "/product/kozmo-plus"
     },
     {
       id: 8,
@@ -62,7 +62,7 @@ export default function ProductsSection() {
       description: "Ground coffee, double light roast",
       price: "$34.99",
       image: "https://framerusercontent.com/images/nuTc250d2Y6Wnx4FdH82PqKsYA.jpg?scale-down-to=1024",
-      href: "https://klane.framer.website/shop/lunar-plus"
+      href: "/product/lunar-plus"
     },
     {
       id: 9,
@@ -70,7 +70,7 @@ export default function ProductsSection() {
       description: "Ground coffee, double medium roast",
       price: "$49.99",
       image: "https://framerusercontent.com/images/2mnN6p3fJB8lHlsdZ1TEjQv2ayU.jpg?scale-down-to=1024",
-      href: "https://klane.framer.website/shop/the-one-plus"
+      href: "/product/the-one-plus"
     },
     {
       id: 10,
@@ -78,7 +78,7 @@ export default function ProductsSection() {
       description: "Ground coffee, double light roast",
       price: "$34.99",
       image: "https://framerusercontent.com/images/5c3PIy4m4YvRO0MIbc1NeBfMaXU.jpg?scale-down-to=1024",
-      href: "https://klane.framer.website/shop/arkan-plus"
+      href: "/product/arkan-plus"
     },
     {
       id: 11,
@@ -86,7 +86,7 @@ export default function ProductsSection() {
       description: "Ground coffee, double medium roast",
       price: "$34.99",
       image: "https://framerusercontent.com/images/5SrlAPZTOT6JPRKJyGo6o4Zfxog.jpg?scale-down-to=1024",
-      href: "https://klane.framer.website/shop/nairo-plus"
+      href: "/product/nairo-plus"
     },
     {
       id: 12,
@@ -94,7 +94,7 @@ export default function ProductsSection() {
       description: "Ground coffee, double medium roast",
       price: "$34.99",
       image: "https://framerusercontent.com/images/gsSLneJqKhA2p3ZtJxf4rM1a4.jpg",
-      href: "https://klane.framer.website/shop/krishna-plus"
+      href: "/product/krishna-plus"
     }
   ];
 
