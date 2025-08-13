@@ -8,10 +8,10 @@ export default function Footer() {
           <div className="flex flex-col items-start justify-start max-w-[1440px] w-full px-4 sm:px-8 lg:px-20 relative gap-8 sm:gap-12">
             
             {/* Top Section */}
-            <div className="flex items-start justify-between w-full h-min relative">
-              
+            <div className="flex flex-col lg:flex-row items-start justify-between w-full h-min relative gap-8 lg:gap-0">
+
               {/* Left Column - Logo and Copyright */}
-              <div className="flex flex-col items-start justify-start w-[400px] relative gap-4 ml-[359px]">
+              <div className="flex flex-col items-start justify-start w-full lg:w-[400px] relative gap-4 lg:ml-[359px]">
                 <div className="flex items-center justify-center h-min w-full relative z-2">
                   <div className="flex flex-col justify-start relative text-nowrap whitespace-pre">
                     <p className="text-[#F5F5F5] font-caveat text-[34px] font-semibold tracking-[0.68px] leading-[40.8px] whitespace-pre">
