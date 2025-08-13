@@ -4,6 +4,8 @@ import { useState } from "react";
 
 export default function Product() {
   const { productId } = useParams();
+  const { addToCart, isInCart } = useCart();
+  const [message, setMessage] = useState<string>("");
 
   const products = {
     "kozmo": {
