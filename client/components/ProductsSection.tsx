@@ -99,14 +99,14 @@ export default function ProductsSection() {
   ];
 
   return (
-    <section className="py-16 px-4 max-w-[1440px] mx-auto">
-      <div className="mb-12">
-        <h2 className="text-4xl font-bold text-center text-[#1D1A40] mb-4">
+    <section className="py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 max-w-[1440px] mx-auto">
+      <div className="mb-8 sm:mb-12">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center text-[#1D1A40] mb-4">
           Our Products
         </h2>
       </div>
-      
-      <div className="bg-[#EAEDF6] rounded-3xl p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+      <div className="bg-[#EAEDF6] rounded-2xl sm:rounded-3xl p-3 sm:p-4 lg:p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
         {products.map((product) => (
           <div key={product.id} className="w-full">
             <a
