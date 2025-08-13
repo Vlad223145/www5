@@ -133,10 +133,10 @@ export default function Product() {
       </nav>
 
       {/* Product Details */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Product Image */}
-          <div className="aspect-square rounded-2xl overflow-hidden bg-gray-100">
+          <div className="aspect-square rounded-xl sm:rounded-2xl overflow-hidden bg-gray-100">
             <img
               src={product.image}
               alt={product.name}
@@ -145,15 +145,15 @@ export default function Product() {
           </div>
 
           {/* Product Info */}
-          <div className="flex flex-col justify-center space-y-8">
+          <div className="flex flex-col justify-center space-y-6 sm:space-y-8">
             <div>
-              <h1 className="text-4xl font-bold text-[#1D1A40] mb-4">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#1D1A40] mb-3 sm:mb-4">
                 {product.name}
               </h1>
-              <p className="text-xl text-gray-600 mb-6">
+              <p className="text-lg sm:text-xl text-gray-600 mb-4 sm:mb-6">
                 {product.description}
               </p>
-              <p className="text-3xl font-bold text-[#1D1A40] mb-8">
+              <p className="text-2xl sm:text-3xl font-bold text-[#1D1A40] mb-6 sm:mb-8">
                 {product.price}
               </p>
             </div>
