@@ -2,10 +2,10 @@ export default function Footer() {
   return (
     <div className="w-full relative flex-shrink-0">
       <div className="contents">
-        <footer className="flex flex-col items-center justify-start bg-[#121212] w-full pt-[120px] pb-12 relative gap-16">
-          
+        <footer className="flex flex-col items-center justify-start bg-[#121212] w-full pt-16 sm:pt-24 lg:pt-[120px] pb-8 sm:pb-12 relative gap-8 sm:gap-12 lg:gap-16">
+
           {/* Main Footer Content */}
-          <div className="flex flex-col items-start justify-start max-w-[1440px] w-full px-20 relative gap-12">
+          <div className="flex flex-col items-start justify-start max-w-[1440px] w-full px-4 sm:px-8 lg:px-20 relative gap-8 sm:gap-12">
             
             {/* Top Section */}
             <div className="flex items-start justify-between w-full h-min relative">
