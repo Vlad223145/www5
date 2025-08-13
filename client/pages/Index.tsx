@@ -10,6 +10,8 @@ import CTASection from "../components/CTASection";
 import Footer from "../components/Footer";
 
 export default function Index() {
+  const { cartItem } = useCart();
+
   return (
     <div className="bg-white">
       <title className="hidden font-times text-base">
