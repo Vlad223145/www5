@@ -29,38 +29,6 @@ export default function HeroSection() {
             <div className="absolute bottom-0 left-0 flex items-center justify-center h-[1305px] w-full overflow-hidden z-2 gap-2.5">
               <div className="relative flex items-center justify-center flex-grow flex-shrink-0 h-full w-full overflow-hidden gap-2.5">
 
-                {/* Text Animation */}
-                <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center w-min overflow-hidden z-6 gap-0.5">
-                  <div className="relative flex-shrink-0">
-                    <div className="flex flex-col items-center justify-center gap-2.5 h-min overflow-hidden relative w-full">
-                      <div className="relative flex flex-col justify-start opacity-100 text-nowrap select-none">
-                        <h1 className="text-[#FBFBFB] font-general-sans text-[80px] font-medium leading-[80px] text-left select-none whitespace-pre">
-                          LatteArt
-                        </h1>
-                      </div>
-                      <div className="absolute left-0 bottom-[-100px] flex flex-col justify-start text-nowrap select-none z-1">
-                        <h1 className="text-[#FBFBFB] font-general-sans text-[80px] font-medium leading-[80px] text-left select-none whitespace-pre">
-                          LatteArt
-                        </h1>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="relative flex-shrink-0">
-                    <div className="flex flex-col items-center justify-center gap-2.5 h-min overflow-hidden relative w-full">
-                      <div className="relative flex flex-col justify-start opacity-100 text-nowrap select-none">
-                        <h1 className="text-[#FBFBFB] font-general-sans text-[80px] font-medium leading-[80px] text-left select-none whitespace-pre">
-                          Coffee
-                        </h1>
-                      </div>
-                      <div className="absolute left-[49%] bottom-[100px] flex flex-col justify-start text-nowrap select-none z-1 transform">
-                        <h1 className="text-[#FBFBFB] font-general-sans text-[80px] font-medium leading-[80px] text-left select-none whitespace-pre">
-                          Coffee
-                        </h1>
-                      </div>
-                    </div>
-                  </div>
-                </div>
 
                 {/* Scroll Indicator */}
                 <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 h-16 w-16 opacity-100 will-change-transform z-5">
