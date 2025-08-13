@@ -158,23 +158,23 @@ export default function Product() {
               </p>
             </div>
 
-            <div className="space-y-6">
-              <p className="text-gray-700 leading-relaxed">
+            <div className="space-y-4 sm:space-y-6">
+              <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
                 {product.details}
               </p>
-              
-              <div className="flex space-x-4">
-                <button className="flex-1 bg-[#1D1A40] text-white py-4 px-8 rounded-lg font-semibold hover:bg-[#2D2A50] transition-colors">
+
+              <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
+                <button className="flex-1 bg-[#1D1A40] text-white py-3 sm:py-4 px-6 sm:px-8 rounded-lg font-semibold hover:bg-[#2D2A50] transition-colors text-sm sm:text-base">
                   Add to Cart
                 </button>
-                <button className="px-8 py-4 border-2 border-[#1D1A40] text-[#1D1A40] rounded-lg font-semibold hover:bg-[#1D1A40] hover:text-white transition-colors">
+                <button className="px-6 sm:px-8 py-3 sm:py-4 border-2 border-[#1D1A40] text-[#1D1A40] rounded-lg font-semibold hover:bg-[#1D1A40] hover:text-white transition-colors text-sm sm:text-base">
                   ♡
                 </button>
               </div>
 
-              <div className="bg-gray-50 rounded-lg p-6">
-                <h3 className="font-semibold text-[#1D1A40] mb-3">Product Features</h3>
-                <ul className="space-y-2 text-gray-600">
+              <div className="bg-gray-50 rounded-lg p-4 sm:p-6">
+                <h3 className="font-semibold text-[#1D1A40] mb-2 sm:mb-3 text-sm sm:text-base">Product Features</h3>
+                <ul className="space-y-1 sm:space-y-2 text-gray-600 text-sm sm:text-base">
                   <li>• Freshly ground coffee beans</li>
                   <li>• Ethically sourced and sustainably grown</li>
                   <li>• Perfect for espresso, drip, and pour-over</li>
