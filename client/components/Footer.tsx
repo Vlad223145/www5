@@ -20,9 +20,9 @@ export default function Footer() {
                   </div>
                 </div>
                 
-                <div className="flex flex-col items-start justify-center h-min overflow-hidden relative w-full gap-1.5">
+                <div className="flex flex-col items-start lg:items-center justify-center h-min overflow-hidden relative w-full gap-1.5">
                   <div className="flex flex-col justify-start overflow-wrap-anywhere relative w-full whitespace-pre-wrap">
-                    <p className="text-[rgba(245,245,245,0.7)] font-general-sans text-sm leading-[19.6px] overflow-wrap-anywhere whitespace-pre-wrap pl-[91px]">
+                    <p className="text-[rgba(245,245,245,0.7)] font-general-sans text-xs sm:text-sm leading-[19.6px] overflow-wrap-anywhere whitespace-pre-wrap text-center lg:text-left lg:pl-[91px]">
                       © 2024 LatteArt. All rights reserved.
                     </p>
                   </div>
