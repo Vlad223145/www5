@@ -111,9 +111,9 @@ export default function ProductsSection() {
           <div key={product.id} className="w-full">
             <a
               href={product.href}
-              className="bg-white rounded-2xl overflow-hidden flex flex-col h-full transition-transform hover:scale-105 will-change-transform"
+              className="bg-white rounded-xl sm:rounded-2xl overflow-hidden flex flex-col h-full transition-transform hover:scale-105 will-change-transform"
             >
-              <div className="relative h-[400px] overflow-hidden">
+              <div className="relative h-[250px] sm:h-[300px] lg:h-[400px] overflow-hidden">
                 <div className="absolute inset-0">
                   <div className="absolute inset-0">
                     <img
@@ -125,8 +125,8 @@ export default function ProductsSection() {
                   </div>
                 </div>
               </div>
-              
-              <div className="flex items-center justify-between p-6 min-w-[200px]">
+
+              <div className="flex items-center justify-between p-4 sm:p-6 min-w-[200px]">
                 <div className="flex flex-col items-center justify-center flex-grow gap-1">
                   <div className="flex flex-col justify-start overflow-wrap-anywhere w-full">
                     <p className="text-[#1D1A40] font-inter text-base font-bold leading-6 text-left overflow-wrap-anywhere whitespace-pre-wrap break-words">
