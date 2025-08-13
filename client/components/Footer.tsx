@@ -12,9 +12,9 @@ export default function Footer() {
 
               {/* Left Column - Logo and Copyright */}
               <div className="flex flex-col items-start justify-start w-full lg:w-[400px] relative gap-4 lg:ml-[359px]">
-                <div className="flex items-center justify-center h-min w-full relative z-2">
+                <div className="flex items-center justify-center lg:justify-start h-min w-full relative z-2">
                   <div className="flex flex-col justify-start relative text-nowrap whitespace-pre">
-                    <p className="text-[#F5F5F5] font-caveat text-[34px] font-semibold tracking-[0.68px] leading-[40.8px] whitespace-pre">
+                    <p className="text-[#F5F5F5] font-caveat text-2xl sm:text-3xl lg:text-[34px] font-semibold tracking-[0.68px] leading-tight lg:leading-[40.8px] whitespace-pre">
                       LatteArt
                     </p>
                   </div>
