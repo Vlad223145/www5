@@ -158,7 +158,7 @@ export default function Product() {
                 {product.description}
               </p>
               <p className="text-2xl sm:text-3xl font-bold text-[#1D1A40] mb-6 sm:mb-8">
-                {product.price}
+                FREE
               </p>
             </div>
 
