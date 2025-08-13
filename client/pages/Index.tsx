@@ -1,5 +1,6 @@
 import HeroSection from "../components/HeroSection";
 import AboutSection from "../components/AboutSection";
+import PromoSection from "../components/PromoSection";
 import ProductsSection from "../components/ProductsSection";
 import ProcessSection from "../components/ProcessSection";
 import MenuSection from "../components/MenuSection";
