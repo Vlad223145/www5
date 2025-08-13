@@ -56,11 +56,11 @@ export default function Footer() {
           </div>
 
           {/* Bottom Section */}
-          <div className="flex flex-col items-start justify-start max-w-[1440px] w-full px-20 relative gap-8">
-            <div className="flex items-end justify-between w-full h-min pt-8 relative">
-              
+          <div className="flex flex-col items-start justify-start max-w-[1440px] w-full px-4 sm:px-8 lg:px-20 relative gap-6 sm:gap-8">
+            <div className="flex flex-col sm:flex-row items-center sm:items-end justify-between w-full h-min pt-6 sm:pt-8 relative gap-4 sm:gap-0">
+
               {/* Privacy Policy */}
-              <div className="flex items-start justify-center h-min overflow-hidden relative w-full gap-0.5 mr-[433px]">
+              <div className="flex items-start justify-center h-min overflow-hidden relative w-full sm:w-auto gap-0.5 lg:mr-[433px]">
                 <div className="relative h-[26px] flex-shrink-0">
                   <a href="https://latteart.framer.website/privacy" className="cursor-pointer flex items-start justify-center h-full overflow-hidden relative w-min">
                     <div className="cursor-pointer flex flex-col items-center justify-start h-min overflow-hidden relative w-full">
