@@ -129,12 +129,12 @@ export default function ProductsSection() {
               <div className="flex items-center justify-between p-4 sm:p-6 min-w-[200px]">
                 <div className="flex flex-col items-center justify-center flex-grow gap-1">
                   <div className="flex flex-col justify-start overflow-wrap-anywhere w-full">
-                    <p className="text-[#1D1A40] font-inter text-base font-bold leading-6 text-left overflow-wrap-anywhere whitespace-pre-wrap break-words">
+                    <p className="text-[#1D1A40] font-inter text-sm sm:text-base font-bold leading-5 sm:leading-6 text-left overflow-wrap-anywhere whitespace-pre-wrap break-words">
                       {product.name}
                     </p>
                   </div>
                   <div className="flex flex-col justify-start overflow-wrap-anywhere w-full">
-                    <p className="text-[#70758C] font-inter text-sm leading-6 text-left overflow-wrap-anywhere whitespace-pre-wrap break-words">
+                    <p className="text-[#70758C] font-inter text-xs sm:text-sm leading-5 sm:leading-6 text-left overflow-wrap-anywhere whitespace-pre-wrap break-words">
                       {product.description}
                     </p>
                   </div>
