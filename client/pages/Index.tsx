@@ -36,7 +36,9 @@ export default function Index() {
                 <div className="cursor-pointer flex flex-col items-center justify-start overflow-hidden relative w-full">
                   <div className="cursor-pointer flex flex-col justify-start relative mix-blend-difference">
                     <p className="cursor-pointer text-[#F5F5F5] font-general-sans text-sm sm:text-base leading-5 sm:leading-6 whitespace-pre">
-                      Cart
+                      Cart {cartItem && (
+                        <span className="inline-block w-2 h-2 bg-red-500 rounded-full ml-1"></span>
+                      )}
                     </p>
                   </div>
                 </div>
