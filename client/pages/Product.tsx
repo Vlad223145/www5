@@ -167,12 +167,42 @@ export default function Product() {
                 {product.details}
               </p>
 
+              {message && (
+                <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
+                  {message}
+                </div>
+              )}
+
               <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
-                <button className="flex-1 bg-[#1D1A40] text-white py-3 sm:py-4 px-6 sm:px-8 rounded-lg font-semibold hover:bg-[#2D2A50] transition-colors text-sm sm:text-base">
-                  Add to Cart
+                <button
+                  onClick={() => {
+                    const result = addToCart({
+                      id: product.id,
+                      name: product.name,
+                      description: product.description,
+                      image: product.image,
+                      href: `/product/${productId}`
+                    });
+
+                    if (!result.success) {
+                      setMessage(result.message || "");
+                      setTimeout(() => setMessage(""), 3000);
+                    } else {
+                      setMessage("Product added to cart successfully!");
+                      setTimeout(() => setMessage(""), 3000);
+                    }
+                  }}
+                  disabled={isInCart(product.id)}
+                  className={`flex-1 py-3 sm:py-4 px-6 sm:px-8 rounded-lg font-semibold transition-colors text-sm sm:text-base ${
+                    isInCart(product.id)
+                      ? 'bg-green-600 text-white cursor-not-allowed'
+                      : 'bg-[#1D1A40] text-white hover:bg-[#2D2A50]'
+                  }`}
+                >
+                  {isInCart(product.id) ? 'Added to Cart' : 'Add to Cart'}
                 </button>
                 <button className="px-6 sm:px-8 py-3 sm:py-4 border-2 border-[#1D1A40] text-[#1D1A40] rounded-lg font-semibold hover:bg-[#1D1A40] hover:text-white transition-colors text-sm sm:text-base">
-                  ♡
+                  Favorite
                 </button>
               </div>
 
