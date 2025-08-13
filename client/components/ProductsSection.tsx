@@ -140,15 +140,6 @@ export default function ProductsSection() {
                   </div>
                 </div>
 
-                {product.name === "Arkan" && (
-                  <div className="bg-[#EAEDF6] rounded-full p-2 sm:p-3 flex items-center justify-center gap-2 sm:gap-3 min-w-fit">
-                    <div className="flex flex-col justify-start text-nowrap whitespace-pre">
-                      <p className="text-[#1D1A40] font-inter text-xs sm:text-sm font-semibold leading-5 sm:leading-6 text-left text-nowrap whitespace-pre">
-                        {product.price}
-                      </p>
-                    </div>
-                  </div>
-                )}
               </div>
             </a>
           </div>
