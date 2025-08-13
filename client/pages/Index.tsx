@@ -43,6 +43,7 @@ export default function Index() {
 
             <HeroSection />
             <AboutSection />
+            <PromoSection />
             <ProductsSection />
             <ProcessSection />
             <MenuSection />
