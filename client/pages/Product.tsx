@@ -9,6 +9,7 @@ export default function Product() {
 
   const products = {
     "kozmo": {
+      id: 1,
       name: "Kozmo",
       description: "Ground coffee, medium roast",
       price: "$19.99",
