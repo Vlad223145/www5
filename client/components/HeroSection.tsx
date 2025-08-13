@@ -68,46 +68,6 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Text Content */}
-          <div className="absolute right-0 top-0 flex items-end justify-end h-[1305px] w-full max-w-[1440px] overflow-hidden z-3 gap-2.5">
-            <div className="flex flex-col items-center justify-center h-full w-1/2 overflow-hidden pt-64 pb-6 pr-20 gap-[62px]">
-              <div className="flex flex-col justify-start overflow-wrap-anywhere relative w-full whitespace-pre-wrap">
-                <h4 className="text-[#F5F5F5] font-general-sans text-2xl font-medium leading-[33.6px] overflow-wrap-anywhere whitespace-pre-wrap">
-                  Indulge in pure coffee perfection, where every cup tells
-                  a story of flavor and joy.
-                </h4>
-              </div>
-
-              <div className="flex items-center justify-start h-min overflow-hidden relative w-full gap-8">
-                <div className="relative h-[52px] flex-shrink-0">
-                  <a 
-                    target="_blank" 
-                    rel="noopener" 
-                    href="https://charwa.lemonsqueezy.com/buy/22cf382d-4ff1-4368-8102-22f175fdb07e" 
-                    className="cursor-pointer flex items-center justify-start h-full overflow-hidden relative w-min gap-3 pb-[15px] pr-2 pt-[15px]"
-                  >
-                    <div className="cursor-pointer flex flex-col justify-start relative text-nowrap z-3">
-                      <p className="cursor-pointer text-[#F5F5F5] font-general-sans text-lg font-medium leading-[21.6px] whitespace-pre">
-                        GET TEMPLATE
-                      </p>
-                    </div>
-                    
-                    <div className="cursor-pointer flex flex-col items-center justify-center aspect-square bg-[#FAFAFA] rounded-full relative w-9 z-2 gap-2.5">
-                      <div className="cursor-pointer aspect-square bg-[#FBFBFB] rounded-full left-1/2 top-1/2 overflow-hidden absolute w-1.5 z-1 transform -translate-x-1.5 -translate-y-1.5"></div>
-                      <div className="cursor-pointer h-6 left-1/2 top-1/2 opacity-100 absolute w-6 z-1 transform -translate-x-3 -translate-y-3">
-                        <div className="cursor-pointer contents">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgb(34, 34, 34)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="cursor-pointer inline fill-none h-6 overflow-clip w-6">
-                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                            <polyline points="12 5 19 12 12 19"></polyline>
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
     </main>
