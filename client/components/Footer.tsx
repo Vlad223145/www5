@@ -76,7 +76,7 @@ export default function Footer() {
               </div>
 
               {/* Social Links */}
-              <div className="flex items-start justify-center h-min overflow-hidden relative w-full gap-9">
+              <div className="flex items-start justify-center h-min overflow-hidden relative w-full sm:w-auto gap-4 sm:gap-6 lg:gap-9">
                 <div className="flex flex-col justify-start relative text-nowrap whitespace-pre" />
                 
                 <div className="relative h-[26px] flex-shrink-0">
