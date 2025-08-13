@@ -139,14 +139,16 @@ export default function ProductsSection() {
                     </p>
                   </div>
                 </div>
-                
-                <div className="bg-[#EAEDF6] rounded-full p-3 flex items-center justify-center gap-3 min-w-fit">
-                  <div className="flex flex-col justify-start text-nowrap whitespace-pre">
-                    <p className="text-[#1D1A40] font-inter text-sm font-semibold leading-6 text-left text-nowrap whitespace-pre">
-                      {product.price}
-                    </p>
+
+                {product.name === "Arkan" && (
+                  <div className="bg-[#EAEDF6] rounded-full p-3 flex items-center justify-center gap-3 min-w-fit">
+                    <div className="flex flex-col justify-start text-nowrap whitespace-pre">
+                      <p className="text-[#1D1A40] font-inter text-sm font-semibold leading-6 text-left text-nowrap whitespace-pre">
+                        {product.price}
+                      </p>
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
             </a>
           </div>
