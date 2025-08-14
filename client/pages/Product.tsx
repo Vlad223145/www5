@@ -174,7 +174,7 @@ export default function Product() {
             </div>
             <div className="flex items-center space-x-2 sm:space-x-4">
               <a
-                href="/"
+                href="/#products"
                 className="text-sm sm:text-base text-gray-600 hover:text-[#1D1A40] transition-colors"
               >
                 Back to Shop
