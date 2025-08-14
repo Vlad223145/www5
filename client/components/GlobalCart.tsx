@@ -100,12 +100,12 @@ export default function GlobalCart() {
                   </div>
                 </div>
               ) : (
-                <div className="p-6 text-center">
-                  <div className="text-4xl mb-2">🛒</div>
-                  <p className="text-gray-500">Your cart is empty</p>
+                <div className="p-4 text-center">
+                  <div className="text-2xl mb-1">🛒</div>
+                  <p className="text-gray-500 text-sm">Cart is empty</p>
                   <a
                     href="/"
-                    className="inline-block mt-3 text-[#1D1A40] hover:underline"
+                    className="inline-block mt-2 text-[#1D1A40] hover:underline text-xs"
                   >
                     Continue Shopping
                   </a>
