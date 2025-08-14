@@ -173,12 +173,27 @@ export default function Product() {
               </a>
             </div>
             <div className="flex items-center space-x-2 sm:space-x-4">
-              <a
-                href="/#products"
-                className="text-sm sm:text-base text-gray-600 hover:text-[#1D1A40] transition-colors"
+              <button
+                onClick={() => {
+                  // Navigate to home page and scroll to products section
+                  if (window.location.pathname === '/') {
+                    // Already on home page, just scroll to products
+                    const productsSection = document.getElementById('products');
+                    if (productsSection) {
+                      productsSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                      });
+                    }
+                  } else {
+                    // Navigate to home page with products hash
+                    window.location.href = '/#products';
+                  }
+                }}
+                className="text-sm sm:text-base text-gray-600 hover:text-[#1D1A40] transition-colors cursor-pointer"
               >
                 Back to Shop
-              </a>
+              </button>
             </div>
           </div>
         </div>
