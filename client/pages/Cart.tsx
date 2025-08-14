@@ -1,4 +1,5 @@
 import { useCart } from "../contexts/CartContext";
+import GlobalCart from "../components/GlobalCart";
 
 export default function Cart() {
   const { cartItem, removeFromCart } = useCart();
