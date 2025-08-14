@@ -60,6 +60,7 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({
       value={{
         cartItem,
         addToCart,
+        replaceCartItem,
         removeFromCart,
         isInCart,
       }}
