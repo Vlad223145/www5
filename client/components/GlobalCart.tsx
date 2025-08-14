@@ -4,6 +4,23 @@ import { useCart } from "../contexts/CartContext";
 export default function GlobalCart() {
   const { cartItem, removeFromCart } = useCart();
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
+  const cartRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (cartRef.current && !cartRef.current.contains(event.target as Node)) {
+        setIsPreviewOpen(false);
+      }
+    }
+
+    if (isPreviewOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isPreviewOpen]);
 
   return (
     <div className="fixed top-4 right-4 z-[9999]">
