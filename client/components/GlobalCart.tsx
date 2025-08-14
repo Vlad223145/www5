@@ -76,27 +76,23 @@ export default function GlobalCart() {
                   </div>
                   
                   {/* Cart Summary */}
-                  <div className="mt-4 pt-4 border-t border-gray-200">
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="text-gray-600">Shipping:</span>
-                      <span className="font-medium text-green-600">FREE</span>
+                  <div className="mt-3 pt-3 border-t border-gray-200">
+                    <div className="flex justify-between items-center mb-1">
+                      <span className="text-xs text-gray-600">Total:</span>
+                      <span className="text-sm font-bold text-green-600">$0.00</span>
                     </div>
-                    <div className="flex justify-between items-center mb-4">
-                      <span className="text-lg font-semibold">Total:</span>
-                      <span className="text-lg font-bold text-green-600">$0.00</span>
-                    </div>
-                    
+
                     {/* Action Buttons */}
-                    <div className="space-y-2">
+                    <div className="space-y-1 mt-2">
                       <a
                         href="/cart"
-                        className="block w-full bg-gray-100 text-gray-800 text-center py-2 px-4 rounded-lg hover:bg-gray-200 transition-colors"
+                        className="block w-full bg-gray-100 text-gray-800 text-center py-1.5 px-3 rounded text-xs hover:bg-gray-200 transition-colors"
                       >
                         View Cart
                       </a>
                       <a
                         href="/checkout"
-                        className="block w-full bg-[#1D1A40] text-white text-center py-2 px-4 rounded-lg hover:bg-[#1D1A40]/90 transition-colors font-medium"
+                        className="block w-full bg-[#1D1A40] text-white text-center py-1.5 px-3 rounded hover:bg-[#1D1A40]/90 transition-colors font-medium text-xs"
                       >
                         Place Order
                       </a>
