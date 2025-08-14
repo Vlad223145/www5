@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import GlobalCart from "../components/GlobalCart";
 import HeroSection from "../components/HeroSection";
 import AboutSection from "../components/AboutSection";
