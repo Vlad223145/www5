@@ -36,13 +36,13 @@ export default function Index() {
               {/* Shopping Cart Icon */}
               <a
                 href="/cart"
-                className="cursor-pointer flex items-center justify-center relative p-2 hover:bg-white/10 rounded-full transition-colors"
+                className="cursor-pointer flex items-center justify-center relative p-1 hover:bg-white/10 rounded-lg transition-colors"
               >
-                <ShoppingCart
-                  className="w-5 h-5 sm:w-6 sm:h-6 text-[#F5F5F5] stroke-2"
-                />
+                <div className="text-2xl sm:text-3xl">
+                  🛒
+                </div>
                 {cartItem && (
-                  <span className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full flex items-center justify-center">
+                  <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full flex items-center justify-center">
                     <span className="text-white text-xs font-bold">1</span>
                   </span>
                 )}
