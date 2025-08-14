@@ -8,28 +8,27 @@ export default function GlobalCart() {
   return (
     <div className="fixed top-4 right-4 z-[9999]">
       {/* Cart Icon */}
-      <div
-        className="relative"
-        onMouseEnter={() => setIsPreviewOpen(true)}
-        onMouseLeave={() => setIsPreviewOpen(false)}
-      >
-        <a
-          href="/cart"
+      <div className="relative">
+        <div
+          onClick={(e) => {
+            e.preventDefault();
+            setIsPreviewOpen(!isPreviewOpen);
+          }}
           className="cursor-pointer flex items-center justify-center relative p-3 bg-black/20 backdrop-blur-sm hover:bg-black/30 rounded-full transition-all duration-300 shadow-lg"
         >
-          <div className="text-3xl sm:text-4xl">
+          <div className="text-2xl sm:text-3xl">
             🛒
           </div>
           {cartItem && (
-            <span className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 rounded-full flex items-center justify-center animate-pulse">
+            <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full flex items-center justify-center animate-pulse">
               <span className="text-white text-xs font-bold">1</span>
             </span>
           )}
-        </a>
+        </div>
 
         {/* Cart Preview Dropdown */}
         {isPreviewOpen && (
-          <div className="absolute top-full right-0 mt-2 w-80 bg-white rounded-lg shadow-xl border border-gray-200 overflow-hidden">
+          <div className="absolute top-full right-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-gray-200 overflow-hidden">
             <div className="p-4 bg-gray-50 border-b">
               <h3 className="text-lg font-semibold text-gray-800">Shopping Cart</h3>
             </div>
