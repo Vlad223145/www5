@@ -45,31 +45,31 @@ export default function GlobalCart() {
 
         {/* Cart Preview Dropdown */}
         {isPreviewOpen && (
-          <div className="absolute top-full right-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-gray-200 overflow-hidden">
-            <div className="p-4 bg-gray-50 border-b">
-              <h3 className="text-lg font-semibold text-gray-800">Shopping Cart</h3>
+          <div className="absolute top-full right-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-200 overflow-hidden">
+            <div className="p-3 bg-gray-50 border-b">
+              <h3 className="text-sm font-semibold text-gray-800">Cart</h3>
             </div>
-            
-            <div className="max-h-64 overflow-y-auto">
+
+            <div className="max-h-48 overflow-y-auto">
               {cartItem ? (
-                <div className="p-4">
-                  <div className="flex items-center space-x-3">
+                <div className="p-3">
+                  <div className="flex items-center space-x-2">
                     <img
                       src={cartItem.image}
                       alt={cartItem.name}
-                      className="w-16 h-16 object-cover rounded-lg"
+                      className="w-12 h-12 object-cover rounded"
                     />
-                    <div className="flex-1">
-                      <h4 className="font-medium text-gray-800">{cartItem.name}</h4>
-                      <p className="text-sm text-gray-600 truncate">{cartItem.description}</p>
-                      <p className="text-lg font-bold text-green-600 mt-1">FREE</p>
+                    <div className="flex-1 min-w-0">
+                      <h4 className="font-medium text-gray-800 text-sm truncate">{cartItem.name}</h4>
+                      <p className="text-xs text-gray-600 truncate">{cartItem.description}</p>
+                      <p className="text-sm font-bold text-green-600">FREE</p>
                     </div>
                     <button
                       onClick={(e) => {
                         e.preventDefault();
                         removeFromCart();
                       }}
-                      className="text-red-500 hover:text-red-700 p-1"
+                      className="text-red-500 hover:text-red-700 text-sm p-1"
                     >
                       ✕
                     </button>
