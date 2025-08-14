@@ -1,4 +1,10 @@
-import React, { createContext, useContext, useState, ReactNode, useEffect } from "react";
+import React, {
+  createContext,
+  useContext,
+  useState,
+  ReactNode,
+  useEffect,
+} from "react";
 
 interface CartItem {
   id: number;
@@ -26,16 +32,16 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({
 
   useEffect(() => {
     // Load from localStorage only on client side after mount
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       try {
-        const saved = localStorage.getItem('cartItem');
+        const saved = localStorage.getItem("cartItem");
         if (saved) {
           const parsedItem = JSON.parse(saved);
           setCartItem(parsedItem);
         }
       } catch (error) {
-        console.error('Error loading cart from localStorage:', error);
-        localStorage.removeItem('cartItem');
+        console.error("Error loading cart from localStorage:", error);
+        localStorage.removeItem("cartItem");
       }
       setIsLoaded(true);
     }
@@ -43,15 +49,15 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({
 
   useEffect(() => {
     // Save to localStorage whenever cartItem changes, but only after initial load
-    if (isLoaded && typeof window !== 'undefined') {
+    if (isLoaded && typeof window !== "undefined") {
       try {
         if (cartItem) {
-          localStorage.setItem('cartItem', JSON.stringify(cartItem));
+          localStorage.setItem("cartItem", JSON.stringify(cartItem));
         } else {
-          localStorage.removeItem('cartItem');
+          localStorage.removeItem("cartItem");
         }
       } catch (error) {
-        console.error('Error saving cart to localStorage:', error);
+        console.error("Error saving cart to localStorage:", error);
       }
     }
   }, [cartItem, isLoaded]);
@@ -62,7 +68,8 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({
     if (cartItem) {
       return {
         success: false,
-        message: "You can only have 1 product in cart. Would you like to replace the current item?",
+        message:
+          "You can only have 1 product in cart. Would you like to replace the current item?",
       };
     }
 
@@ -76,7 +83,7 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({
     setCartItem(item);
     return {
       success: true,
-      message: "Product replaced in cart successfully!"
+      message: "Product replaced in cart successfully!",
     };
   };
 

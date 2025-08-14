@@ -14,11 +14,11 @@ export default function GlobalCart() {
     }
 
     if (isPreviewOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener("mousedown", handleClickOutside);
     }
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [isPreviewOpen]);
 
@@ -33,9 +33,7 @@ export default function GlobalCart() {
           }}
           className="cursor-pointer flex items-center justify-center relative p-3 bg-black/20 backdrop-blur-sm hover:bg-black/30 rounded-full transition-all duration-300 shadow-lg"
         >
-          <div className="text-2xl sm:text-3xl">
-            🛒
-          </div>
+          <div className="text-2xl sm:text-3xl">🛒</div>
           {cartItem && (
             <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full flex items-center justify-center animate-pulse">
               <span className="text-white text-xs font-bold">1</span>
@@ -60,8 +58,12 @@ export default function GlobalCart() {
                       className="w-12 h-12 object-cover rounded"
                     />
                     <div className="flex-1 min-w-0">
-                      <h4 className="font-medium text-gray-800 text-sm truncate">{cartItem.name}</h4>
-                      <p className="text-xs text-gray-600 truncate">{cartItem.description}</p>
+                      <h4 className="font-medium text-gray-800 text-sm truncate">
+                        {cartItem.name}
+                      </h4>
+                      <p className="text-xs text-gray-600 truncate">
+                        {cartItem.description}
+                      </p>
                       <p className="text-sm font-bold text-green-600">FREE</p>
                     </div>
                     <button
@@ -74,12 +76,14 @@ export default function GlobalCart() {
                       ✕
                     </button>
                   </div>
-                  
+
                   {/* Cart Summary */}
                   <div className="mt-3 pt-3 border-t border-gray-200">
                     <div className="flex justify-between items-center mb-1">
                       <span className="text-xs text-gray-600">Total:</span>
-                      <span className="text-sm font-bold text-green-600">$0.00</span>
+                      <span className="text-sm font-bold text-green-600">
+                        $0.00
+                      </span>
                     </div>
 
                     {/* Action Buttons */}

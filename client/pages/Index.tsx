@@ -13,13 +13,13 @@ import Footer from "../components/Footer";
 export default function Index() {
   useEffect(() => {
     // Check if URL has #products hash and scroll to products section
-    if (window.location.hash === '#products') {
+    if (window.location.hash === "#products") {
       setTimeout(() => {
-        const productsSection = document.getElementById('products');
+        const productsSection = document.getElementById("products");
         if (productsSection) {
           productsSection.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
+            behavior: "smooth",
+            block: "start",
           });
         }
       }, 100); // Small delay to ensure DOM is ready

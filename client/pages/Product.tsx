@@ -176,18 +176,18 @@ export default function Product() {
               <button
                 onClick={() => {
                   // Navigate to home page and scroll to products section
-                  if (window.location.pathname === '/') {
+                  if (window.location.pathname === "/") {
                     // Already on home page, just scroll to products
-                    const productsSection = document.getElementById('products');
+                    const productsSection = document.getElementById("products");
                     if (productsSection) {
                       productsSection.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+                        behavior: "smooth",
+                        block: "start",
                       });
                     }
                   } else {
                     // Navigate to home page with products hash
-                    window.location.href = '/#products';
+                    window.location.href = "/#products";
                   }
                 }}
                 className="text-sm sm:text-base text-gray-600 hover:text-[#1D1A40] transition-colors cursor-pointer"

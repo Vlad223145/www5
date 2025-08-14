@@ -111,7 +111,10 @@ export default function ProductsSection() {
   ];
 
   return (
-    <section id="products" className="py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 max-w-[1440px] mx-auto scroll-mt-16">
+    <section
+      id="products"
+      className="py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 max-w-[1440px] mx-auto scroll-mt-16"
+    >
       <div className="mb-8 sm:mb-12">
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center text-[#1D1A40] mb-4">
           Our Products
