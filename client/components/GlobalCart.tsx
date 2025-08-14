@@ -23,7 +23,7 @@ export default function GlobalCart() {
   }, [isPreviewOpen]);
 
   return (
-    <div className="fixed top-4 right-4 z-[9999]">
+    <div className="fixed top-4 right-4 z-[9999]" ref={cartRef}>
       {/* Cart Icon */}
       <div className="relative">
         <div
