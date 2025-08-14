@@ -31,23 +31,25 @@ export default function Index() {
               </div>
             </div>
 
-            {/* Navigation Links */}
-            <div className="absolute right-4 sm:right-8 lg:right-40 top-4 sm:top-6 lg:top-9 h-[26px] z-9 flex items-center space-x-4 sm:space-x-6">
-              {/* Shopping Cart Icon */}
+            {/* Fixed Shopping Cart Icon - Always Visible */}
+            <div className="fixed top-4 right-4 z-[9999] flex items-center space-x-4">
               <a
                 href="/cart"
-                className="cursor-pointer flex items-center justify-center relative p-1 hover:bg-white/10 rounded-lg transition-colors"
+                className="cursor-pointer flex items-center justify-center relative p-3 bg-black/20 backdrop-blur-sm hover:bg-black/30 rounded-full transition-all duration-300 shadow-lg"
               >
-                <div className="text-2xl sm:text-3xl">
+                <div className="text-3xl sm:text-4xl">
                   🛒
                 </div>
                 {cartItem && (
-                  <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full flex items-center justify-center">
+                  <span className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 rounded-full flex items-center justify-center animate-pulse">
                     <span className="text-white text-xs font-bold">1</span>
                   </span>
                 )}
               </a>
+            </div>
 
+            {/* Navigation Links */}
+            <div className="absolute right-4 sm:right-8 lg:right-40 top-4 sm:top-6 lg:top-9 h-[26px] z-10 flex items-center space-x-4 sm:space-x-6">
               <span className="cursor-pointer flex items-center h-full overflow-hidden relative w-min">
                 <div className="cursor-pointer flex flex-col items-center justify-start overflow-hidden relative w-full">
                   <div className="cursor-pointer flex flex-col justify-start relative mix-blend-difference">
