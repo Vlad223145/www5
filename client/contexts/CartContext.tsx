@@ -21,23 +21,40 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 export const CartProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  const [cartItem, setCartItem] = useState<CartItem | null>(() => {
-    if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('cartItem');
-      return saved ? JSON.parse(saved) : null;
-    }
-    return null;
-  });
+  const [cartItem, setCartItem] = useState<CartItem | null>(null);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
+    // Load from localStorage only on client side after mount
     if (typeof window !== 'undefined') {
-      if (cartItem) {
-        localStorage.setItem('cartItem', JSON.stringify(cartItem));
-      } else {
+      try {
+        const saved = localStorage.getItem('cartItem');
+        if (saved) {
+          const parsedItem = JSON.parse(saved);
+          setCartItem(parsedItem);
+        }
+      } catch (error) {
+        console.error('Error loading cart from localStorage:', error);
         localStorage.removeItem('cartItem');
       }
+      setIsLoaded(true);
     }
-  }, [cartItem]);
+  }, []);
+
+  useEffect(() => {
+    // Save to localStorage whenever cartItem changes, but only after initial load
+    if (isLoaded && typeof window !== 'undefined') {
+      try {
+        if (cartItem) {
+          localStorage.setItem('cartItem', JSON.stringify(cartItem));
+        } else {
+          localStorage.removeItem('cartItem');
+        }
+      } catch (error) {
+        console.error('Error saving cart to localStorage:', error);
+      }
+    }
+  }, [cartItem, isLoaded]);
 
   const addToCart = (
     item: CartItem,
