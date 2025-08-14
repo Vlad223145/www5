@@ -229,8 +229,12 @@ export default function Product() {
                     });
 
                     if (!result.success) {
+                      setShowReplaceOption(true);
                       setMessage(result.message || "");
-                      setTimeout(() => setMessage(""), 3000);
+                      setTimeout(() => {
+                        setMessage("");
+                        setShowReplaceOption(false);
+                      }, 5000);
                     } else {
                       setMessage("Product added to cart successfully!");
                       setTimeout(() => setMessage(""), 3000);
@@ -249,6 +253,43 @@ export default function Product() {
                   Favorite
                 </button>
               </div>
+
+              {/* Replace option when cart is full */}
+              {showReplaceOption && (
+                <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mt-4">
+                  <p className="text-yellow-800 font-medium mb-3">
+                    Replace current item in cart?
+                  </p>
+                  <div className="flex space-x-3">
+                    <button
+                      onClick={() => {
+                        const result = replaceCartItem({
+                          id: product.id,
+                          name: product.name,
+                          description: product.description,
+                          image: product.image,
+                          href: `/product/${productId}`,
+                        });
+                        setMessage(result.message || "");
+                        setShowReplaceOption(false);
+                        setTimeout(() => setMessage(""), 3000);
+                      }}
+                      className="bg-[#1D1A40] text-white px-4 py-2 rounded-lg hover:bg-[#2D2A50] transition-colors"
+                    >
+                      Yes, Replace
+                    </button>
+                    <button
+                      onClick={() => {
+                        setShowReplaceOption(false);
+                        setMessage("");
+                      }}
+                      className="bg-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-400 transition-colors"
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                </div>
+              )}
 
               <div className="bg-gray-50 rounded-lg p-4 sm:p-6">
                 <h3 className="font-semibold text-[#1D1A40] mb-2 sm:mb-3 text-sm sm:text-base">
