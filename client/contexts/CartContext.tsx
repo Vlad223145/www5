@@ -29,12 +29,22 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({
     if (cartItem) {
       return {
         success: false,
-        message: "Sorry, you have already selected 1 product",
+        message: "You can only have 1 product in cart. Would you like to replace the current item?",
       };
     }
 
     setCartItem(item);
     return { success: true };
+  };
+
+  const replaceCartItem = (
+    item: CartItem,
+  ): { success: boolean; message?: string } => {
+    setCartItem(item);
+    return {
+      success: true,
+      message: "Product replaced in cart successfully!"
+    };
   };
 
   const removeFromCart = () => {
