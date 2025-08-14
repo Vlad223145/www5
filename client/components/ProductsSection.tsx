@@ -5,97 +5,109 @@ export default function ProductsSection() {
       name: "Kozmo",
       description: "Ground coffee, medium roast",
       price: "$19.99",
-      image: "https://framerusercontent.com/images/NXttOnsmf4ONyIuiMGkBzv7ECU.jpg",
-      href: "/product/kozmo"
+      image:
+        "https://framerusercontent.com/images/NXttOnsmf4ONyIuiMGkBzv7ECU.jpg",
+      href: "/product/kozmo",
     },
     {
       id: 2,
       name: "Lunar",
       description: "Ground coffee, light roast",
       price: "$24.99",
-      image: "https://framerusercontent.com/images/nuTc250d2Y6Wnx4FdH82PqKsYA.jpg?scale-down-to=1024",
-      href: "/product/lunar"
+      image:
+        "https://framerusercontent.com/images/nuTc250d2Y6Wnx4FdH82PqKsYA.jpg?scale-down-to=1024",
+      href: "/product/lunar",
     },
     {
       id: 3,
       name: "The One®",
       description: "Ground coffee, medium roast",
       price: "$14.99",
-      image: "https://framerusercontent.com/images/2mnN6p3fJB8lHlsdZ1TEjQv2ayU.jpg?scale-down-to=1024",
-      href: "/product/the-one"
+      image:
+        "https://framerusercontent.com/images/2mnN6p3fJB8lHlsdZ1TEjQv2ayU.jpg?scale-down-to=1024",
+      href: "/product/the-one",
     },
     {
       id: 4,
       name: "Arkan",
       description: "Ground coffee, light roast",
       price: "$19.99",
-      image: "https://framerusercontent.com/images/5c3PIy4m4YvRO0MIbc1NeBfMaXU.jpg?scale-down-to=1024",
-      href: "/product/arkan"
+      image:
+        "https://framerusercontent.com/images/5c3PIy4m4YvRO0MIbc1NeBfMaXU.jpg?scale-down-to=1024",
+      href: "/product/arkan",
     },
     {
       id: 5,
       name: "Nairo",
       description: "Ground coffee, medium roast",
       price: "$19.99",
-      image: "https://framerusercontent.com/images/5SrlAPZTOT6JPRKJyGo6o4Zfxog.jpg?scale-down-to=1024",
-      href: "/product/nairo"
+      image:
+        "https://framerusercontent.com/images/5SrlAPZTOT6JPRKJyGo6o4Zfxog.jpg?scale-down-to=1024",
+      href: "/product/nairo",
     },
     {
       id: 6,
       name: "Krishna",
       description: "Ground coffee, medium roast",
       price: "$19.99",
-      image: "https://framerusercontent.com/images/gsSLneJqKhA2p3ZtJxf4rM1a4.jpg",
-      href: "/product/krishna"
+      image:
+        "https://framerusercontent.com/images/gsSLneJqKhA2p3ZtJxf4rM1a4.jpg",
+      href: "/product/krishna",
     },
     {
       id: 7,
       name: "Kozmo Plus",
       description: "Ground coffee, double medium roast",
       price: "$34.99",
-      image: "https://framerusercontent.com/images/NXttOnsmf4ONyIuiMGkBzv7ECU.jpg",
-      href: "/product/kozmo-plus"
+      image:
+        "https://framerusercontent.com/images/NXttOnsmf4ONyIuiMGkBzv7ECU.jpg",
+      href: "/product/kozmo-plus",
     },
     {
       id: 8,
       name: "Lunar Plus",
       description: "Ground coffee, double light roast",
       price: "$34.99",
-      image: "https://framerusercontent.com/images/nuTc250d2Y6Wnx4FdH82PqKsYA.jpg?scale-down-to=1024",
-      href: "/product/lunar-plus"
+      image:
+        "https://framerusercontent.com/images/nuTc250d2Y6Wnx4FdH82PqKsYA.jpg?scale-down-to=1024",
+      href: "/product/lunar-plus",
     },
     {
       id: 9,
       name: "The One® Plus",
       description: "Ground coffee, double medium roast",
       price: "$49.99",
-      image: "https://framerusercontent.com/images/2mnN6p3fJB8lHlsdZ1TEjQv2ayU.jpg?scale-down-to=1024",
-      href: "/product/the-one-plus"
+      image:
+        "https://framerusercontent.com/images/2mnN6p3fJB8lHlsdZ1TEjQv2ayU.jpg?scale-down-to=1024",
+      href: "/product/the-one-plus",
     },
     {
       id: 10,
       name: "Arkan Plus",
       description: "Ground coffee, double light roast",
       price: "$34.99",
-      image: "https://framerusercontent.com/images/5c3PIy4m4YvRO0MIbc1NeBfMaXU.jpg?scale-down-to=1024",
-      href: "/product/arkan-plus"
+      image:
+        "https://framerusercontent.com/images/5c3PIy4m4YvRO0MIbc1NeBfMaXU.jpg?scale-down-to=1024",
+      href: "/product/arkan-plus",
     },
     {
       id: 11,
       name: "Nairo Plus",
       description: "Ground coffee, double medium roast",
       price: "$34.99",
-      image: "https://framerusercontent.com/images/5SrlAPZTOT6JPRKJyGo6o4Zfxog.jpg?scale-down-to=1024",
-      href: "/product/nairo-plus"
+      image:
+        "https://framerusercontent.com/images/5SrlAPZTOT6JPRKJyGo6o4Zfxog.jpg?scale-down-to=1024",
+      href: "/product/nairo-plus",
     },
     {
       id: 12,
       name: "Krishna Plus",
       description: "Ground coffee, double medium roast",
       price: "$34.99",
-      image: "https://framerusercontent.com/images/gsSLneJqKhA2p3ZtJxf4rM1a4.jpg",
-      href: "/product/krishna-plus"
-    }
+      image:
+        "https://framerusercontent.com/images/gsSLneJqKhA2p3ZtJxf4rM1a4.jpg",
+      href: "/product/krishna-plus",
+    },
   ];
 
   return (
@@ -139,7 +151,6 @@ export default function ProductsSection() {
                     </p>
                   </div>
                 </div>
-
               </div>
             </a>
           </div>

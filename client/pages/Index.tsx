@@ -17,7 +17,7 @@ export default function Index() {
       <title className="hidden font-times text-base">
         Latteart — Cafe Website Template
       </title>
-      
+
       <div className="bg-white">
         <div>
           <div className="flex flex-col items-center justify-start bg-white min-h-screen lg:min-h-[1305px] relative">
@@ -32,11 +32,15 @@ export default function Index() {
 
             {/* Navigation Links */}
             <div className="absolute right-4 sm:right-8 lg:right-40 top-4 sm:top-6 lg:top-9 h-[26px] z-9 flex space-x-4 sm:space-x-6">
-              <a href="/cart" className="cursor-pointer flex items-center h-full overflow-hidden relative w-min">
+              <a
+                href="/cart"
+                className="cursor-pointer flex items-center h-full overflow-hidden relative w-min"
+              >
                 <div className="cursor-pointer flex flex-col items-center justify-start overflow-hidden relative w-full">
                   <div className="cursor-pointer flex flex-col justify-start relative mix-blend-difference">
                     <p className="cursor-pointer text-[#F5F5F5] font-general-sans text-sm sm:text-base leading-5 sm:leading-6 whitespace-pre">
-                      Cart {cartItem && (
+                      Cart{" "}
+                      {cartItem && (
                         <span className="inline-block w-2 h-2 bg-red-500 rounded-full ml-1"></span>
                       )}
                     </p>
