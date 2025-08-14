@@ -32,22 +32,20 @@ export default function Index() {
             </div>
 
             {/* Navigation Links */}
-            <div className="absolute right-4 sm:right-8 lg:right-40 top-4 sm:top-6 lg:top-9 h-[26px] z-9 flex space-x-4 sm:space-x-6">
+            <div className="absolute right-4 sm:right-8 lg:right-40 top-4 sm:top-6 lg:top-9 h-[26px] z-9 flex items-center space-x-4 sm:space-x-6">
+              {/* Shopping Cart Icon */}
               <a
                 href="/cart"
-                className="cursor-pointer flex items-center h-full overflow-hidden relative w-min"
+                className="cursor-pointer flex items-center justify-center relative p-2 hover:bg-white/10 rounded-full transition-colors"
               >
-                <div className="cursor-pointer flex flex-col items-center justify-start overflow-hidden relative w-full">
-                  <div className="cursor-pointer flex flex-col justify-start relative mix-blend-difference">
-                    <p className="cursor-pointer text-[#F5F5F5] font-general-sans text-sm sm:text-base leading-5 sm:leading-6 whitespace-pre">
-                      Cart{" "}
-                      {cartItem && (
-                        <span className="inline-block w-2 h-2 bg-red-500 rounded-full ml-1"></span>
-                      )}
-                    </p>
-                  </div>
-                </div>
-                <div className="absolute bottom-0 left-[-2px] bg-white h-px w-full z-1 cursor-pointer"></div>
+                <ShoppingCart
+                  className="w-5 h-5 sm:w-6 sm:h-6 text-[#F5F5F5] stroke-2"
+                />
+                {cartItem && (
+                  <span className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full flex items-center justify-center">
+                    <span className="text-white text-xs font-bold">1</span>
+                  </span>
+                )}
               </a>
 
               <span className="cursor-pointer flex items-center h-full overflow-hidden relative w-min">
