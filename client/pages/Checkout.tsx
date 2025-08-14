@@ -1,5 +1,6 @@
 import { useCart } from "../contexts/CartContext";
 import { useState } from "react";
+import GlobalCart from "../components/GlobalCart";
 
 export default function Checkout() {
   const { cartItem } = useCart();
