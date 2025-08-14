@@ -11,6 +11,21 @@ import CTASection from "../components/CTASection";
 import Footer from "../components/Footer";
 
 export default function Index() {
+  useEffect(() => {
+    // Check if URL has #products hash and scroll to products section
+    if (window.location.hash === '#products') {
+      setTimeout(() => {
+        const productsSection = document.getElementById('products');
+        if (productsSection) {
+          productsSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      }, 100); // Small delay to ensure DOM is ready
+    }
+  }, []);
+
   return (
     <div className="bg-white">
       <title className="hidden font-times text-base">
