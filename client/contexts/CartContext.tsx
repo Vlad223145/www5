@@ -11,6 +11,7 @@ interface CartItem {
 interface CartContextType {
   cartItem: CartItem | null;
   addToCart: (item: CartItem) => { success: boolean; message?: string };
+  replaceCartItem: (item: CartItem) => { success: boolean; message?: string };
   removeFromCart: () => void;
   isInCart: (itemId: number) => boolean;
 }
