@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useCart } from "../contexts/CartContext";
 
 export default function GlobalCart() {
