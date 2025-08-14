@@ -1,4 +1,5 @@
 import { useCart } from "../contexts/CartContext";
+import { ShoppingCart } from "lucide-react";
 import HeroSection from "../components/HeroSection";
 import AboutSection from "../components/AboutSection";
 import PromoSection from "../components/PromoSection";
