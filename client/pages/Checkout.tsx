@@ -18,23 +18,165 @@ export default function Checkout() {
     cardName: "",
   });
 
+  const [errors, setErrors] = useState<Record<string, string>>({});
+
+  const countries = [
+    "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan",
+    "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina Faso", "Burundi",
+    "Cambodia", "Cameroon", "Canada", "Cape Verde", "Central African Republic", "Chad", "Chile", "China", "Colombia", "Comoros", "Congo", "Costa Rica", "Croatia", "Cuba", "Cyprus", "Czech Republic",
+    "Denmark", "Djibouti", "Dominica", "Dominican Republic",
+    "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Eswatini", "Ethiopia",
+    "Fiji", "Finland", "France",
+    "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana",
+    "Haiti", "Honduras", "Hungary",
+    "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Israel", "Italy", "Ivory Coast",
+    "Jamaica", "Japan", "Jordan",
+    "Kazakhstan", "Kenya", "Kiribati", "Kuwait", "Kyrgyzstan",
+    "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg",
+    "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico", "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar",
+    "Namibia", "Nauru", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "North Korea", "North Macedonia", "Norway",
+    "Oman",
+    "Pakistan", "Palau", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal",
+    "Qatar",
+    "Romania", "Russia", "Rwanda",
+    "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Korea", "South Sudan", "Spain", "Sri Lanka", "Sudan", "Suriname", "Sweden", "Switzerland", "Syria",
+    "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Timor-Leste", "Togo", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Tuvalu",
+    "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "Uruguay", "Uzbekistan",
+    "Vanuatu", "Vatican City", "Venezuela", "Vietnam",
+    "Yemen",
+    "Zambia", "Zimbabwe"
+  ];
+
+  const validateField = (name: string, value: string) => {
+    const newErrors = { ...errors };
+
+    switch (name) {
+      case "email":
+        if (!value) {
+          newErrors.email = "Email is required";
+        } else if (!/\S+@\S+\.\S+/.test(value)) {
+          newErrors.email = "Email is invalid";
+        } else {
+          delete newErrors.email;
+        }
+        break;
+      case "cardNumber":
+        const cleaned = value.replace(/\D/g, "");
+        if (!cleaned) {
+          newErrors.cardNumber = "Card number is required";
+        } else if (cleaned.length < 13 || cleaned.length > 19) {
+          newErrors.cardNumber = "Card number must be 13-19 digits";
+        } else {
+          delete newErrors.cardNumber;
+        }
+        break;
+      case "expiryDate":
+        if (!value) {
+          newErrors.expiryDate = "Expiry date is required";
+        } else if (!/^(0[1-9]|1[0-2])\/([0-9]{2})$/.test(value)) {
+          newErrors.expiryDate = "Format: MM/YY";
+        } else {
+          delete newErrors.expiryDate;
+        }
+        break;
+      case "cvv":
+        if (!value) {
+          newErrors.cvv = "CVV is required";
+        } else if (!/^[0-9]{3,4}$/.test(value)) {
+          newErrors.cvv = "CVV must be 3-4 digits";
+        } else {
+          delete newErrors.cvv;
+        }
+        break;
+      case "cardName":
+        if (!value) {
+          newErrors.cardName = "Cardholder name is required";
+        } else {
+          delete newErrors.cardName;
+        }
+        break;
+      case "fullName":
+        if (!value) {
+          newErrors.fullName = "Full name is required";
+        } else {
+          delete newErrors.fullName;
+        }
+        break;
+      case "address":
+        if (!value) {
+          newErrors.address = "Address is required";
+        } else {
+          delete newErrors.address;
+        }
+        break;
+      case "zipCode":
+        if (!value) {
+          newErrors.zipCode = "ZIP code is required";
+        } else {
+          delete newErrors.zipCode;
+        }
+        break;
+    }
+
+    setErrors(newErrors);
+  };
+
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
   ) => {
     const { name, value, type, checked } = e.target as HTMLInputElement;
+    let formattedValue = value;
+
+    // Format card number with spaces
+    if (name === "cardNumber") {
+      formattedValue = value.replace(/\D/g, "").replace(/(\d{4})(?=\d)/g, "$1 ");
+    }
+
+    // Format expiry date
+    if (name === "expiryDate") {
+      const cleaned = value.replace(/\D/g, "");
+      if (cleaned.length >= 2) {
+        formattedValue = cleaned.slice(0, 2) + "/" + cleaned.slice(2, 4);
+      } else {
+        formattedValue = cleaned;
+      }
+    }
+
+    // Limit CVV to 4 digits
+    if (name === "cvv") {
+      formattedValue = value.replace(/\D/g, "").slice(0, 4);
+    }
+
     setFormData((prev) => ({
       ...prev,
-      [name]: type === "checkbox" ? checked : value,
+      [name]: type === "checkbox" ? checked : formattedValue,
     }));
+
+    // Validate field on change
+    validateField(name, formattedValue);
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log("Order submitted:", formData);
-    alert(
-      "Order placed successfully! You will receive a confirmation email shortly.",
-    );
+    
+    // Validate all required fields
+    const requiredFields = ["email", "fullName", "address", "zipCode"];
+    if (formData.paymentMethod === "card") {
+      requiredFields.push("cardNumber", "expiryDate", "cvv", "cardName");
+    }
+
+    let hasErrors = false;
+    requiredFields.forEach(field => {
+      if (!formData[field as keyof typeof formData]) {
+        validateField(field, "");
+        hasErrors = true;
+      }
+    });
+
+    if (!hasErrors && Object.keys(errors).length === 0) {
+      console.log("Order submitted:", formData);
+      alert("Order placed successfully! You will receive a confirmation email shortly.");
+    }
   };
 
   if (!cartItem) {
@@ -97,7 +239,7 @@ export default function Checkout() {
                 <h2 className="text-lg font-medium text-gray-900 mb-6">
                   Shipping information
                 </h2>
-
+                
                 {/* Email */}
                 <div className="mb-6">
                   <label
@@ -113,9 +255,14 @@ export default function Checkout() {
                     required
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm"
+                    className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm ${
+                      errors.email ? "border-red-500" : "border-gray-300"
+                    }`}
                     placeholder="email@example.com"
                   />
+                  {errors.email && (
+                    <p className="text-red-500 text-xs mt-1">{errors.email}</p>
+                  )}
                 </div>
 
                 {/* Shipping Address */}
@@ -123,7 +270,7 @@ export default function Checkout() {
                   <h3 className="text-sm font-medium text-gray-700 mb-4">
                     Shipping address
                   </h3>
-
+                  
                   <div className="space-y-4">
                     <div>
                       <input
@@ -133,9 +280,14 @@ export default function Checkout() {
                         required
                         value={formData.fullName}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm"
+                        className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm ${
+                          errors.fullName ? "border-red-500" : "border-gray-300"
+                        }`}
                         placeholder="Full name"
                       />
+                      {errors.fullName && (
+                        <p className="text-red-500 text-xs mt-1">{errors.fullName}</p>
+                      )}
                     </div>
 
                     <div>
@@ -146,11 +298,11 @@ export default function Checkout() {
                         onChange={handleInputChange}
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm bg-white"
                       >
-                        <option value="Poland">Poland</option>
-                        <option value="United States">United States</option>
-                        <option value="United Kingdom">United Kingdom</option>
-                        <option value="Germany">Germany</option>
-                        <option value="France">France</option>
+                        {countries.map((country) => (
+                          <option key={country} value={country}>
+                            {country}
+                          </option>
+                        ))}
                       </select>
                     </div>
 
@@ -162,9 +314,32 @@ export default function Checkout() {
                         required
                         value={formData.address}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm"
+                        className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm ${
+                          errors.address ? "border-red-500" : "border-gray-300"
+                        }`}
                         placeholder="Address"
                       />
+                      {errors.address && (
+                        <p className="text-red-500 text-xs mt-1">{errors.address}</p>
+                      )}
+                    </div>
+
+                    <div>
+                      <input
+                        type="text"
+                        id="zipCode"
+                        name="zipCode"
+                        required
+                        value={formData.zipCode}
+                        onChange={handleInputChange}
+                        className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm ${
+                          errors.zipCode ? "border-red-500" : "border-gray-300"
+                        }`}
+                        placeholder="ZIP Code"
+                      />
+                      {errors.zipCode && (
+                        <p className="text-red-500 text-xs mt-1">{errors.zipCode}</p>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -179,7 +354,7 @@ export default function Checkout() {
                 <h2 className="text-lg font-medium text-gray-900 mb-6">
                   Payment method
                 </h2>
-
+                
                 <div className="space-y-4">
                   {/* Card Payment */}
                   <label className="flex items-center p-4 border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50">
@@ -199,32 +374,101 @@ export default function Checkout() {
                         </svg>
                       </div>
                       <div className="ml-auto flex space-x-1">
-                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAzMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMwIiBoZWlnaHQ9IjIwIiByeD0iNCIgZmlsbD0iIzAwNTFBNSIvPgo8cGF0aCBkPSJNMTEuNzc2IDEyLjU0SDEwLjE3MkwxMS4yODggOC4yNjhIMTIuODkyTDExLjc3NiAxMi41NFoiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik04Ljk0NCA4LjI2OEg3LjU1NkM3LjQyNCA4LjI2OCA3LjMxNiA4LjM1MiA3LjI5MiA4LjQ3Mkw2LjU4NCAxMi4zMjhDNi41NzIgMTIuNDA0IDYuNjI4IDEyLjQ3MiANi43MDggMTIuNDcySDE3LjAwNEM3LjIzMiAxMi40MTIgNy40NDggMTIuMjkyIDcuNTMyIDEyLjA5Nkw4LjQ5MiA4LjM4QzguNTI4IDguMzEyIDguNzMyIDguMjY4IDguOTQ0IDguMjY4WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+" alt="Visa" className="h-5" />
-                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAzMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMwIiBoZWlnaHQ9IjIwIiByeD0iNCIgZmlsbD0iI0VCMDAxQiIvPgo8Y2lyY2xlIGN4PSIxMCIgY3k9IjEwIiByPSI2IiBmaWxsPSIjRkY1RjAwIi8+CjxjaXJjbGUgY3g9IjIwIiBjeT0iMTAiIHI9IjYiIGZpbGw9IiNGRjVGMDAiLz4KPHN0eWxlPi5zdDAme2ZpbGw6I0ZGNUYwMDt9PC9zdHlsZT4KPC9zdmc+" alt="Mastercard" className="h-5" />
                         <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAzMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMwIiBoZWlnaHQ9IjIwIiByeD0iNCIgZmlsbD0iIzAwNjZBMCIvPgo8cGF0aCBkPSJNNi42IDEyLjRINS44TDQuOCA4LjRINS42TDYuMiAxMS42TDcuNCA4LjRIOC4yTDYuNiAxMi40WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+" alt="American Express" className="h-5" />
-                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAzMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMwIiBoZWlnaHQ9IjIwIiByeD0iNCIgZmlsbD0iIzAwMzA4NyIvPgo8Y2lyY2xlIGN4PSIxNSIgY3k9IjEwIiByPSI0IiBmaWxsPSJ3aGl0ZSIvPgo8Y2lyY2xlIGN4PSIxNSIgY3k9IjEwIiByPSIyIiBmaWxsPSIjMDAzMDg3Ii8+Cjwvc3ZnPg==" alt="Diners" className="h-5" />
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAzMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMwIiBoZWlnaHQ9IjIwIiByeD0iNCIgZmlsbD0iIzAwMzA4NyIvPgo8Y2lyY2xlIGN4PSIxNSIgY3k9IjEwIiByPSI0IiBmaWxsPSJ3aGl0ZSIvPgo8Y2lyY2xlIGN4PSIxNSIgY3k9IjEwIiByPSIyIiBmaWxsPSIjMDAzMDg3Ii8+Cjwvc3ZnPg==" alt="Diners" className="h-5 ml-1" />
                       </div>
                     </div>
                   </label>
-
-                  {/* Przelewy24 Payment */}
-                  <label className="flex items-center p-4 border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50">
-                    <input
-                      type="radio"
-                      name="paymentMethod"
-                      value="przelewy24"
-                      checked={formData.paymentMethod === "przelewy24"}
-                      onChange={handleInputChange}
-                      className="w-4 h-4 text-blue-600 focus:ring-blue-500"
-                    />
-                    <div className="ml-3 flex items-center">
-                      <svg className="w-6 h-6 mr-2 text-red-600" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2L2 7V10C2 16 12 22 12 22S22 16 22 10V7L12 2Z"/>
-                      </svg>
-                      <span className="font-medium">Przelewy24</span>
-                    </div>
-                  </label>
                 </div>
+
+                {/* Card Details - Show only when card is selected */}
+                {formData.paymentMethod === "card" && (
+                  <div className="mt-4 p-4 border border-gray-200 rounded-lg bg-gray-50">
+                    <h3 className="text-sm font-medium text-gray-700 mb-4">Card Details</h3>
+                    <div className="space-y-4">
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                          Card Number
+                        </label>
+                        <input
+                          type="text"
+                          name="cardNumber"
+                          value={formData.cardNumber}
+                          onChange={handleInputChange}
+                          maxLength={23}
+                          className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                            errors.cardNumber ? "border-red-500" : "border-gray-300"
+                          }`}
+                          placeholder="1234 5678 9012 3456"
+                        />
+                        {errors.cardNumber && (
+                          <p className="text-red-500 text-xs mt-1">{errors.cardNumber}</p>
+                        )}
+                      </div>
+
+                      <div className="grid grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-1">
+                            Expiry Date
+                          </label>
+                          <input
+                            type="text"
+                            name="expiryDate"
+                            value={formData.expiryDate}
+                            onChange={handleInputChange}
+                            maxLength={5}
+                            className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                              errors.expiryDate ? "border-red-500" : "border-gray-300"
+                            }`}
+                            placeholder="MM/YY"
+                          />
+                          {errors.expiryDate && (
+                            <p className="text-red-500 text-xs mt-1">{errors.expiryDate}</p>
+                          )}
+                        </div>
+
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-1">
+                            CVV
+                          </label>
+                          <input
+                            type="text"
+                            name="cvv"
+                            value={formData.cvv}
+                            onChange={handleInputChange}
+                            maxLength={4}
+                            className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                              errors.cvv ? "border-red-500" : "border-gray-300"
+                            }`}
+                            placeholder="123"
+                          />
+                          {errors.cvv && (
+                            <p className="text-red-500 text-xs mt-1">{errors.cvv}</p>
+                          )}
+                        </div>
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                          Cardholder Name
+                        </label>
+                        <input
+                          type="text"
+                          name="cardName"
+                          value={formData.cardName}
+                          onChange={handleInputChange}
+                          className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                            errors.cardName ? "border-red-500" : "border-gray-300"
+                          }`}
+                          placeholder="John Doe"
+                        />
+                        {errors.cardName && (
+                          <p className="text-red-500 text-xs mt-1">{errors.cardName}</p>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
 
               {/* Save Information Checkbox */}
@@ -259,11 +503,10 @@ export default function Checkout() {
               <div className="text-center text-xs text-gray-500 space-y-2">
                 <div className="flex items-center justify-center">
                   <svg className="w-4 h-4 mr-1" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2L2 7V10C2 16 12 22 12 22S22 16 22 10V7L12 2Z"/>
                   </svg>
                   <span className="underline cursor-pointer">Free returns and exchanges</span>
                 </div>
-
+                
                 <div className="flex items-center justify-center space-x-4">
                   <span>Powered by</span>
                   <strong>stripe</strong>
