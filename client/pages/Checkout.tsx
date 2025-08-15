@@ -273,8 +273,8 @@ export default function Checkout() {
           </div>
 
           {/* Order Summary */}
-          <div className="bg-white rounded-lg shadow-sm p-6 h-fit">
-            <h2 className="text-lg font-semibold text-[#1D1A40] mb-4">
+          <div className="bg-white rounded-lg shadow-lg border border-gray-200 p-6 h-fit">
+            <h2 className="text-lg font-medium text-gray-900 mb-6">
               Order Summary
             </h2>
 
@@ -310,17 +310,17 @@ export default function Checkout() {
             </div>
 
             <div className="border-t pt-4">
-              <div className="flex justify-between text-lg font-bold text-[#1D1A40]">
+              <div className="flex justify-between text-lg font-bold text-gray-900">
                 <span>Total</span>
                 <span>$0.00</span>
               </div>
             </div>
 
-            <div className="mt-6 p-4 bg-green-50 rounded-lg">
+            <div className="mt-6 p-4 bg-green-50 rounded-lg border border-green-200">
               <div className="flex items-start">
                 <div className="flex-shrink-0">
                   <svg
-                    className="h-5 w-5 text-green-400"
+                    className="h-5 w-5 text-green-500"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
