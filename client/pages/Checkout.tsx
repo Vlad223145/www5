@@ -6,16 +6,11 @@ export default function Checkout() {
   const { cartItem } = useCart();
   const [formData, setFormData] = useState({
     email: "",
-    firstName: "",
-    lastName: "",
+    fullName: "",
+    country: "Poland",
     address: "",
-    apartment: "",
-    city: "",
-    state: "",
-    zipCode: "",
-    country: "United States",
-    phone: "",
-    shippingMethod: "standard",
+    paymentMethod: "card",
+    saveInfo: false,
   });
 
   const handleInputChange = (
