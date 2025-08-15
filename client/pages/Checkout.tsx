@@ -9,8 +9,13 @@ export default function Checkout() {
     fullName: "",
     country: "Poland",
     address: "",
+    zipCode: "",
     paymentMethod: "card",
     saveInfo: false,
+    cardNumber: "",
+    expiryDate: "",
+    cvv: "",
+    cardName: "",
   });
 
   const handleInputChange = (
