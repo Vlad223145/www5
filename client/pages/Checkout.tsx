@@ -197,7 +197,6 @@ export default function Checkout() {
                           <rect x="2" y="6" width="20" height="12" rx="2" stroke="currentColor" strokeWidth="2" fill="none"/>
                           <path d="M2 10h20" stroke="currentColor" strokeWidth="2"/>
                         </svg>
-                        <span className="font-medium">Card</span>
                       </div>
                       <div className="ml-auto flex space-x-1">
                         <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAzMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMwIiBoZWlnaHQ9IjIwIiByeD0iNCIgZmlsbD0iIzAwNTFBNSIvPgo8cGF0aCBkPSJNMTEuNzc2IDEyLjU0SDEwLjE3MkwxMS4yODggOC4yNjhIMTIuODkyTDExLjc3NiAxMi41NFoiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik04Ljk0NCA4LjI2OEg3LjU1NkM3LjQyNCA4LjI2OCA3LjMxNiA4LjM1MiA3LjI5MiA4LjQ3Mkw2LjU4NCAxMi4zMjhDNi41NzIgMTIuNDA0IDYuNjI4IDEyLjQ3MiANi43MDggMTIuNDcySDE3LjAwNEM3LjIzMiAxMi40MTIgNy40NDggMTIuMjkyIDcuNTMyIDEyLjA5Nkw4LjQ5MiA4LjM4QzguNTI4IDguMzEyIDguNzMyIDguMjY4IDguOTQ0IDguMjY4WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+" alt="Visa" className="h-5" />
