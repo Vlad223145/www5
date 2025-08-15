@@ -85,265 +85,190 @@ export default function Checkout() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Checkout Form */}
-          <div className="bg-white rounded-lg shadow-sm p-6">
-            <h1 className="text-2xl font-bold text-[#1D1A40] mb-6">Checkout</h1>
-
-            <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Contact Information */}
+          <div className="bg-white rounded-lg shadow-lg border border-gray-200 p-8">
+            <form onSubmit={handleSubmit} className="space-y-8">
+              {/* Shipping Information */}
               <div>
-                <h2 className="text-lg font-semibold text-gray-900 mb-4">
-                  Contact Information
+                <h2 className="text-lg font-medium text-gray-900 mb-6">
+                  Shipping information
                 </h2>
+
+                {/* Email */}
+                <div className="mb-6">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm"
+                    placeholder="email@example.com"
+                  />
+                </div>
+
+                {/* Shipping Address */}
+                <div className="mb-6">
+                  <h3 className="text-sm font-medium text-gray-700 mb-4">
+                    Shipping address
+                  </h3>
+
+                  <div className="space-y-4">
+                    <div>
+                      <input
+                        type="text"
+                        id="fullName"
+                        name="fullName"
+                        required
+                        value={formData.fullName}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm"
+                        placeholder="Full name"
+                      />
+                    </div>
+
+                    <div>
+                      <select
+                        id="country"
+                        name="country"
+                        value={formData.country}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm bg-white"
+                      >
+                        <option value="Poland">Poland</option>
+                        <option value="United States">United States</option>
+                        <option value="United Kingdom">United Kingdom</option>
+                        <option value="Germany">Germany</option>
+                        <option value="France">France</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <input
+                        type="text"
+                        id="address"
+                        name="address"
+                        required
+                        value={formData.address}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm"
+                        placeholder="Address"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="text-xs text-gray-500 mb-6">
+                  <span className="underline cursor-pointer">Enter address manually</span>
+                </div>
+              </div>
+
+              {/* Payment Method */}
+              <div>
+                <h2 className="text-lg font-medium text-gray-900 mb-6">
+                  Payment method
+                </h2>
+
                 <div className="space-y-4">
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-medium text-gray-700 mb-1"
-                    >
-                      Email Address
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      required
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1D1A40] focus:border-transparent"
-                      placeholder="john@example.com"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              {/* Shipping Address */}
-              <div>
-                <h2 className="text-lg font-semibold text-gray-900 mb-4">
-                  Shipping Address
-                </h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label
-                      htmlFor="firstName"
-                      className="block text-sm font-medium text-gray-700 mb-1"
-                    >
-                      First Name
-                    </label>
-                    <input
-                      type="text"
-                      id="firstName"
-                      name="firstName"
-                      required
-                      value={formData.firstName}
-                      onChange={handleInputChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1D1A40] focus:border-transparent"
-                    />
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="lastName"
-                      className="block text-sm font-medium text-gray-700 mb-1"
-                    >
-                      Last Name
-                    </label>
-                    <input
-                      type="text"
-                      id="lastName"
-                      name="lastName"
-                      required
-                      value={formData.lastName}
-                      onChange={handleInputChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1D1A40] focus:border-transparent"
-                    />
-                  </div>
-
-                  <div className="sm:col-span-2">
-                    <label
-                      htmlFor="address"
-                      className="block text-sm font-medium text-gray-700 mb-1"
-                    >
-                      Address
-                    </label>
-                    <input
-                      type="text"
-                      id="address"
-                      name="address"
-                      required
-                      value={formData.address}
-                      onChange={handleInputChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1D1A40] focus:border-transparent"
-                    />
-                  </div>
-
-                  <div className="sm:col-span-2">
-                    <label
-                      htmlFor="apartment"
-                      className="block text-sm font-medium text-gray-700 mb-1"
-                    >
-                      Apartment, suite, etc. (optional)
-                    </label>
-                    <input
-                      type="text"
-                      id="apartment"
-                      name="apartment"
-                      value={formData.apartment}
-                      onChange={handleInputChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1D1A40] focus:border-transparent"
-                    />
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="city"
-                      className="block text-sm font-medium text-gray-700 mb-1"
-                    >
-                      City
-                    </label>
-                    <input
-                      type="text"
-                      id="city"
-                      name="city"
-                      required
-                      value={formData.city}
-                      onChange={handleInputChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1D1A40] focus:border-transparent"
-                    />
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="state"
-                      className="block text-sm font-medium text-gray-700 mb-1"
-                    >
-                      State
-                    </label>
-                    <input
-                      type="text"
-                      id="state"
-                      name="state"
-                      required
-                      value={formData.state}
-                      onChange={handleInputChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1D1A40] focus:border-transparent"
-                    />
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="zipCode"
-                      className="block text-sm font-medium text-gray-700 mb-1"
-                    >
-                      ZIP Code
-                    </label>
-                    <input
-                      type="text"
-                      id="zipCode"
-                      name="zipCode"
-                      required
-                      value={formData.zipCode}
-                      onChange={handleInputChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1D1A40] focus:border-transparent"
-                    />
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="country"
-                      className="block text-sm font-medium text-gray-700 mb-1"
-                    >
-                      Country
-                    </label>
-                    <select
-                      id="country"
-                      name="country"
-                      value={formData.country}
-                      onChange={handleInputChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1D1A40] focus:border-transparent"
-                    >
-                      <option value="United States">United States</option>
-                      <option value="Canada">Canada</option>
-                      <option value="United Kingdom">United Kingdom</option>
-                      <option value="Australia">Australia</option>
-                    </select>
-                  </div>
-
-                  <div className="sm:col-span-2">
-                    <label
-                      htmlFor="phone"
-                      className="block text-sm font-medium text-gray-700 mb-1"
-                    >
-                      Phone Number
-                    </label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      required
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1D1A40] focus:border-transparent"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              {/* Shipping Method */}
-              <div>
-                <h2 className="text-lg font-semibold text-gray-900 mb-4">
-                  Shipping Method
-                </h2>
-                <div className="space-y-3">
-                  <label className="flex items-center">
+                  {/* Card Payment */}
+                  <label className="flex items-center p-4 border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50">
                     <input
                       type="radio"
-                      name="shippingMethod"
-                      value="standard"
-                      checked={formData.shippingMethod === "standard"}
+                      name="paymentMethod"
+                      value="card"
+                      checked={formData.paymentMethod === "card"}
                       onChange={handleInputChange}
-                      className="text-[#1D1A40] focus:ring-[#1D1A40]"
+                      className="w-4 h-4 text-blue-600 focus:ring-blue-500"
                     />
-                    <span className="ml-3 text-sm text-gray-700">
-                      Standard Shipping (5-7 business days) - FREE
-                    </span>
+                    <div className="ml-3 flex items-center">
+                      <div className="flex items-center">
+                        <svg className="w-6 h-6 mr-2" viewBox="0 0 24 24" fill="none">
+                          <rect x="2" y="6" width="20" height="12" rx="2" stroke="currentColor" strokeWidth="2" fill="none"/>
+                          <path d="M2 10h20" stroke="currentColor" strokeWidth="2"/>
+                        </svg>
+                        <span className="font-medium">Card</span>
+                      </div>
+                      <div className="ml-auto flex space-x-1">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAzMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMwIiBoZWlnaHQ9IjIwIiByeD0iNCIgZmlsbD0iIzAwNTFBNSIvPgo8cGF0aCBkPSJNMTEuNzc2IDEyLjU0SDEwLjE3MkwxMS4yODggOC4yNjhIMTIuODkyTDExLjc3NiAxMi41NFoiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik04Ljk0NCA4LjI2OEg3LjU1NkM3LjQyNCA4LjI2OCA3LjMxNiA4LjM1MiA3LjI5MiA4LjQ3Mkw2LjU4NCAxMi4zMjhDNi41NzIgMTIuNDA0IDYuNjI4IDEyLjQ3MiANi43MDggMTIuNDcySDE3LjAwNEM3LjIzMiAxMi40MTIgNy40NDggMTIuMjkyIDcuNTMyIDEyLjA5Nkw4LjQ5MiA4LjM4QzguNTI4IDguMzEyIDguNzMyIDguMjY4IDguOTQ0IDguMjY4WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+" alt="Visa" className="h-5" />
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAzMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMwIiBoZWlnaHQ9IjIwIiByeD0iNCIgZmlsbD0iI0VCMDAxQiIvPgo8Y2lyY2xlIGN4PSIxMCIgY3k9IjEwIiByPSI2IiBmaWxsPSIjRkY1RjAwIi8+CjxjaXJjbGUgY3g9IjIwIiBjeT0iMTAiIHI9IjYiIGZpbGw9IiNGRjVGMDAiLz4KPHN0eWxlPi5zdDAme2ZpbGw6I0ZGNUYwMDt9PC9zdHlsZT4KPC9zdmc+" alt="Mastercard" className="h-5" />
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAzMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMwIiBoZWlnaHQ9IjIwIiByeD0iNCIgZmlsbD0iIzAwNjZBMCIvPgo8cGF0aCBkPSJNNi42IDEyLjRINS44TDQuOCA4LjRINS42TDYuMiAxMS42TDcuNCA4LjRIOC4yTDYuNiAxMi40WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+" alt="American Express" className="h-5" />
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAzMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMwIiBoZWlnaHQ9IjIwIiByeD0iNCIgZmlsbD0iIzAwMzA4NyIvPgo8Y2lyY2xlIGN4PSIxNSIgY3k9IjEwIiByPSI0IiBmaWxsPSJ3aGl0ZSIvPgo8Y2lyY2xlIGN4PSIxNSIgY3k9IjEwIiByPSIyIiBmaWxsPSIjMDAzMDg3Ii8+Cjwvc3ZnPg==" alt="Diners" className="h-5" />
+                      </div>
+                    </div>
                   </label>
 
-                  <label className="flex items-center">
+                  {/* Przelewy24 Payment */}
+                  <label className="flex items-center p-4 border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50">
                     <input
                       type="radio"
-                      name="shippingMethod"
-                      value="express"
-                      checked={formData.shippingMethod === "express"}
+                      name="paymentMethod"
+                      value="przelewy24"
+                      checked={formData.paymentMethod === "przelewy24"}
                       onChange={handleInputChange}
-                      className="text-[#1D1A40] focus:ring-[#1D1A40]"
+                      className="w-4 h-4 text-blue-600 focus:ring-blue-500"
                     />
-                    <span className="ml-3 text-sm text-gray-700">
-                      Express Shipping (2-3 business days) - FREE
-                    </span>
-                  </label>
-
-                  <label className="flex items-center">
-                    <input
-                      type="radio"
-                      name="shippingMethod"
-                      value="overnight"
-                      checked={formData.shippingMethod === "overnight"}
-                      onChange={handleInputChange}
-                      className="text-[#1D1A40] focus:ring-[#1D1A40]"
-                    />
-                    <span className="ml-3 text-sm text-gray-700">
-                      Overnight Shipping (1 business day) - FREE
-                    </span>
+                    <div className="ml-3 flex items-center">
+                      <svg className="w-6 h-6 mr-2 text-red-600" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2L2 7V10C2 16 12 22 12 22S22 16 22 10V7L12 2Z"/>
+                      </svg>
+                      <span className="font-medium">Przelewy24</span>
+                    </div>
                   </label>
                 </div>
               </div>
 
+              {/* Save Information Checkbox */}
+              <div className="flex items-start">
+                <input
+                  type="checkbox"
+                  id="saveInfo"
+                  name="saveInfo"
+                  checked={formData.saveInfo}
+                  onChange={handleInputChange}
+                  className="w-4 h-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded mt-1"
+                />
+                <div className="ml-3">
+                  <label htmlFor="saveInfo" className="text-sm font-medium text-gray-900 cursor-pointer">
+                    Save my information for faster checkout
+                  </label>
+                  <p className="text-xs text-gray-500 mt-1">
+                    Pay faster on Powdur and everywhere Link is accepted.
+                  </p>
+                </div>
+              </div>
+
+              {/* Pay Button */}
               <button
                 type="submit"
-                className="w-full bg-[#1D1A40] text-white py-3 px-6 rounded-lg hover:bg-[#2D2A50] transition-colors font-semibold"
+                className="w-full bg-blue-600 text-white py-4 px-6 rounded-lg hover:bg-blue-700 transition-colors font-medium text-lg"
               >
-                Complete Order
+                Pay
               </button>
+
+              {/* Footer Links */}
+              <div className="text-center text-xs text-gray-500 space-y-2">
+                <div className="flex items-center justify-center">
+                  <svg className="w-4 h-4 mr-1" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2L2 7V10C2 16 12 22 12 22S22 16 22 10V7L12 2Z"/>
+                  </svg>
+                  <span className="underline cursor-pointer">Free returns and exchanges</span>
+                </div>
+
+                <div className="flex items-center justify-center space-x-4">
+                  <span>Powered by</span>
+                  <strong>stripe</strong>
+                  <span>|</span>
+                  <span className="underline cursor-pointer">Legal</span>
+                  <span className="underline cursor-pointer">Returns</span>
+                  <span className="underline cursor-pointer">Contact</span>
+                </div>
+              </div>
             </form>
           </div>
 
