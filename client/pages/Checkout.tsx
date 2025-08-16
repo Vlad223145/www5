@@ -21,30 +21,199 @@ export default function Checkout() {
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const countries = [
-    "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan",
-    "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina Faso", "Burundi",
-    "Cambodia", "Cameroon", "Canada", "Cape Verde", "Central African Republic", "Chad", "Chile", "China", "Colombia", "Comoros", "Congo", "Costa Rica", "Croatia", "Cuba", "Cyprus", "Czech Republic",
-    "Denmark", "Djibouti", "Dominica", "Dominican Republic",
-    "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Eswatini", "Ethiopia",
-    "Fiji", "Finland", "France",
-    "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana",
-    "Haiti", "Honduras", "Hungary",
-    "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Israel", "Italy", "Ivory Coast",
-    "Jamaica", "Japan", "Jordan",
-    "Kazakhstan", "Kenya", "Kiribati", "Kuwait", "Kyrgyzstan",
-    "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg",
-    "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico", "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar",
-    "Namibia", "Nauru", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "North Korea", "North Macedonia", "Norway",
+    "Afghanistan",
+    "Albania",
+    "Algeria",
+    "Andorra",
+    "Angola",
+    "Argentina",
+    "Armenia",
+    "Australia",
+    "Austria",
+    "Azerbaijan",
+    "Bahamas",
+    "Bahrain",
+    "Bangladesh",
+    "Barbados",
+    "Belarus",
+    "Belgium",
+    "Belize",
+    "Benin",
+    "Bhutan",
+    "Bolivia",
+    "Bosnia and Herzegovina",
+    "Botswana",
+    "Brazil",
+    "Brunei",
+    "Bulgaria",
+    "Burkina Faso",
+    "Burundi",
+    "Cambodia",
+    "Cameroon",
+    "Canada",
+    "Cape Verde",
+    "Central African Republic",
+    "Chad",
+    "Chile",
+    "China",
+    "Colombia",
+    "Comoros",
+    "Congo",
+    "Costa Rica",
+    "Croatia",
+    "Cuba",
+    "Cyprus",
+    "Czech Republic",
+    "Denmark",
+    "Djibouti",
+    "Dominica",
+    "Dominican Republic",
+    "Ecuador",
+    "Egypt",
+    "El Salvador",
+    "Equatorial Guinea",
+    "Eritrea",
+    "Estonia",
+    "Eswatini",
+    "Ethiopia",
+    "Fiji",
+    "Finland",
+    "France",
+    "Gabon",
+    "Gambia",
+    "Georgia",
+    "Germany",
+    "Ghana",
+    "Greece",
+    "Grenada",
+    "Guatemala",
+    "Guinea",
+    "Guinea-Bissau",
+    "Guyana",
+    "Haiti",
+    "Honduras",
+    "Hungary",
+    "Iceland",
+    "India",
+    "Indonesia",
+    "Iran",
+    "Iraq",
+    "Ireland",
+    "Israel",
+    "Italy",
+    "Ivory Coast",
+    "Jamaica",
+    "Japan",
+    "Jordan",
+    "Kazakhstan",
+    "Kenya",
+    "Kiribati",
+    "Kuwait",
+    "Kyrgyzstan",
+    "Laos",
+    "Latvia",
+    "Lebanon",
+    "Lesotho",
+    "Liberia",
+    "Libya",
+    "Liechtenstein",
+    "Lithuania",
+    "Luxembourg",
+    "Madagascar",
+    "Malawi",
+    "Malaysia",
+    "Maldives",
+    "Mali",
+    "Malta",
+    "Marshall Islands",
+    "Mauritania",
+    "Mauritius",
+    "Mexico",
+    "Micronesia",
+    "Moldova",
+    "Monaco",
+    "Mongolia",
+    "Montenegro",
+    "Morocco",
+    "Mozambique",
+    "Myanmar",
+    "Namibia",
+    "Nauru",
+    "Nepal",
+    "Netherlands",
+    "New Zealand",
+    "Nicaragua",
+    "Niger",
+    "Nigeria",
+    "North Korea",
+    "North Macedonia",
+    "Norway",
     "Oman",
-    "Pakistan", "Palau", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal",
+    "Pakistan",
+    "Palau",
+    "Panama",
+    "Papua New Guinea",
+    "Paraguay",
+    "Peru",
+    "Philippines",
+    "Poland",
+    "Portugal",
     "Qatar",
-    "Romania", "Russia", "Rwanda",
-    "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Korea", "South Sudan", "Spain", "Sri Lanka", "Sudan", "Suriname", "Sweden", "Switzerland", "Syria",
-    "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Timor-Leste", "Togo", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Tuvalu",
-    "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "Uruguay", "Uzbekistan",
-    "Vanuatu", "Vatican City", "Venezuela", "Vietnam",
+    "Romania",
+    "Russia",
+    "Rwanda",
+    "Saint Kitts and Nevis",
+    "Saint Lucia",
+    "Saint Vincent and the Grenadines",
+    "Samoa",
+    "San Marino",
+    "Sao Tome and Principe",
+    "Saudi Arabia",
+    "Senegal",
+    "Serbia",
+    "Seychelles",
+    "Sierra Leone",
+    "Singapore",
+    "Slovakia",
+    "Slovenia",
+    "Solomon Islands",
+    "Somalia",
+    "South Africa",
+    "South Korea",
+    "South Sudan",
+    "Spain",
+    "Sri Lanka",
+    "Sudan",
+    "Suriname",
+    "Sweden",
+    "Switzerland",
+    "Syria",
+    "Taiwan",
+    "Tajikistan",
+    "Tanzania",
+    "Thailand",
+    "Timor-Leste",
+    "Togo",
+    "Tonga",
+    "Trinidad and Tobago",
+    "Tunisia",
+    "Turkey",
+    "Turkmenistan",
+    "Tuvalu",
+    "Uganda",
+    "Ukraine",
+    "United Arab Emirates",
+    "United Kingdom",
+    "United States",
+    "Uruguay",
+    "Uzbekistan",
+    "Vanuatu",
+    "Vatican City",
+    "Venezuela",
+    "Vietnam",
     "Yemen",
-    "Zambia", "Zimbabwe"
+    "Zambia",
+    "Zimbabwe",
   ];
 
   const validateField = (name: string, value: string) => {
@@ -129,7 +298,9 @@ export default function Checkout() {
 
     // Format card number with spaces
     if (name === "cardNumber") {
-      formattedValue = value.replace(/\D/g, "").replace(/(\d{4})(?=\d)/g, "$1 ");
+      formattedValue = value
+        .replace(/\D/g, "")
+        .replace(/(\d{4})(?=\d)/g, "$1 ");
     }
 
     // Format expiry date
@@ -158,7 +329,7 @@ export default function Checkout() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Validate all required fields
     const requiredFields = ["email", "fullName", "address", "zipCode"];
     if (formData.paymentMethod === "card") {
@@ -166,7 +337,7 @@ export default function Checkout() {
     }
 
     let hasErrors = false;
-    requiredFields.forEach(field => {
+    requiredFields.forEach((field) => {
       if (!formData[field as keyof typeof formData]) {
         validateField(field, "");
         hasErrors = true;
@@ -175,7 +346,9 @@ export default function Checkout() {
 
     if (!hasErrors && Object.keys(errors).length === 0) {
       console.log("Order submitted:", formData);
-      alert("Order placed successfully! You will receive a confirmation email shortly.");
+      alert(
+        "Order placed successfully! You will receive a confirmation email shortly.",
+      );
     }
   };
 
@@ -239,7 +412,7 @@ export default function Checkout() {
                 <h2 className="text-lg font-medium text-gray-900 mb-6">
                   Shipping information
                 </h2>
-                
+
                 {/* Email */}
                 <div className="mb-6">
                   <label
@@ -270,7 +443,7 @@ export default function Checkout() {
                   <h3 className="text-sm font-medium text-gray-700 mb-4">
                     Shipping address
                   </h3>
-                  
+
                   <div className="space-y-4">
                     <div>
                       <input
@@ -286,7 +459,9 @@ export default function Checkout() {
                         placeholder="Full name"
                       />
                       {errors.fullName && (
-                        <p className="text-red-500 text-xs mt-1">{errors.fullName}</p>
+                        <p className="text-red-500 text-xs mt-1">
+                          {errors.fullName}
+                        </p>
                       )}
                     </div>
 
@@ -320,7 +495,9 @@ export default function Checkout() {
                         placeholder="Address"
                       />
                       {errors.address && (
-                        <p className="text-red-500 text-xs mt-1">{errors.address}</p>
+                        <p className="text-red-500 text-xs mt-1">
+                          {errors.address}
+                        </p>
                       )}
                     </div>
 
@@ -338,14 +515,18 @@ export default function Checkout() {
                         placeholder="ZIP Code"
                       />
                       {errors.zipCode && (
-                        <p className="text-red-500 text-xs mt-1">{errors.zipCode}</p>
+                        <p className="text-red-500 text-xs mt-1">
+                          {errors.zipCode}
+                        </p>
                       )}
                     </div>
                   </div>
                 </div>
 
                 <div className="text-xs text-gray-500 mb-6">
-                  <span className="underline cursor-pointer">Enter address manually</span>
+                  <span className="underline cursor-pointer">
+                    Enter address manually
+                  </span>
                 </div>
               </div>
 
@@ -354,7 +535,7 @@ export default function Checkout() {
                 <h2 className="text-lg font-medium text-gray-900 mb-6">
                   Payment method
                 </h2>
-                
+
                 <div className="space-y-4">
                   {/* Card Payment */}
                   <label className="flex items-center p-4 border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50">
@@ -368,14 +549,39 @@ export default function Checkout() {
                     />
                     <div className="ml-3 flex items-center">
                       <div className="flex items-center">
-                        <svg className="w-6 h-6 mr-2" viewBox="0 0 24 24" fill="none">
-                          <rect x="2" y="6" width="20" height="12" rx="2" stroke="currentColor" strokeWidth="2" fill="none"/>
-                          <path d="M2 10h20" stroke="currentColor" strokeWidth="2"/>
+                        <svg
+                          className="w-6 h-6 mr-2"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                        >
+                          <rect
+                            x="2"
+                            y="6"
+                            width="20"
+                            height="12"
+                            rx="2"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            fill="none"
+                          />
+                          <path
+                            d="M2 10h20"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                          />
                         </svg>
                       </div>
                       <div className="ml-auto flex space-x-1">
-                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAzMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMwIiBoZWlnaHQ9IjIwIiByeD0iNCIgZmlsbD0iIzAwNjZBMCIvPgo8cGF0aCBkPSJNNi42IDEyLjRINS44TDQuOCA4LjRINS42TDYuMiAxMS42TDcuNCA4LjRIOC4yTDYuNiAxMi40WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+" alt="American Express" className="h-5" />
-                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAzMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMwIiBoZWlnaHQ9IjIwIiByeD0iNCIgZmlsbD0iIzAwMzA4NyIvPgo8Y2lyY2xlIGN4PSIxNSIgY3k9IjEwIiByPSI0IiBmaWxsPSJ3aGl0ZSIvPgo8Y2lyY2xlIGN4PSIxNSIgY3k9IjEwIiByPSIyIiBmaWxsPSIjMDAzMDg3Ii8+Cjwvc3ZnPg==" alt="Diners" className="h-5 ml-1" />
+                        <img
+                          src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAzMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMwIiBoZWlnaHQ9IjIwIiByeD0iNCIgZmlsbD0iIzAwNjZBMCIvPgo8cGF0aCBkPSJNNi42IDEyLjRINS44TDQuOCA4LjRINS42TDYuMiAxMS42TDcuNCA4LjRIOC4yTDYuNiAxMi40WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+"
+                          alt="American Express"
+                          className="h-5"
+                        />
+                        <img
+                          src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAzMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMwIiBoZWlnaHQ9IjIwIiByeD0iNCIgZmlsbD0iIzAwMzA4NyIvPgo8Y2lyY2xlIGN4PSIxNSIgY3k9IjEwIiByPSI0IiBmaWxsPSJ3aGl0ZSIvPgo8Y2lyY2xlIGN4PSIxNSIgY3k9IjEwIiByPSIyIiBmaWxsPSIjMDAzMDg3Ii8+Cjwvc3ZnPg=="
+                          alt="Diners"
+                          className="h-5 ml-1"
+                        />
                       </div>
                     </div>
                   </label>
@@ -384,7 +590,9 @@ export default function Checkout() {
                 {/* Card Details - Show only when card is selected */}
                 {formData.paymentMethod === "card" && (
                   <div className="mt-4 p-4 border border-gray-200 rounded-lg bg-gray-50">
-                    <h3 className="text-sm font-medium text-gray-700 mb-4">Card Details</h3>
+                    <h3 className="text-sm font-medium text-gray-700 mb-4">
+                      Card Details
+                    </h3>
                     <div className="space-y-4">
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -397,12 +605,16 @@ export default function Checkout() {
                           onChange={handleInputChange}
                           maxLength={23}
                           className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                            errors.cardNumber ? "border-red-500" : "border-gray-300"
+                            errors.cardNumber
+                              ? "border-red-500"
+                              : "border-gray-300"
                           }`}
                           placeholder="1234 5678 9012 3456"
                         />
                         {errors.cardNumber && (
-                          <p className="text-red-500 text-xs mt-1">{errors.cardNumber}</p>
+                          <p className="text-red-500 text-xs mt-1">
+                            {errors.cardNumber}
+                          </p>
                         )}
                       </div>
 
@@ -418,12 +630,16 @@ export default function Checkout() {
                             onChange={handleInputChange}
                             maxLength={5}
                             className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                              errors.expiryDate ? "border-red-500" : "border-gray-300"
+                              errors.expiryDate
+                                ? "border-red-500"
+                                : "border-gray-300"
                             }`}
                             placeholder="MM/YY"
                           />
                           {errors.expiryDate && (
-                            <p className="text-red-500 text-xs mt-1">{errors.expiryDate}</p>
+                            <p className="text-red-500 text-xs mt-1">
+                              {errors.expiryDate}
+                            </p>
                           )}
                         </div>
 
@@ -443,7 +659,9 @@ export default function Checkout() {
                             placeholder="123"
                           />
                           {errors.cvv && (
-                            <p className="text-red-500 text-xs mt-1">{errors.cvv}</p>
+                            <p className="text-red-500 text-xs mt-1">
+                              {errors.cvv}
+                            </p>
                           )}
                         </div>
                       </div>
@@ -458,12 +676,16 @@ export default function Checkout() {
                           value={formData.cardName}
                           onChange={handleInputChange}
                           className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                            errors.cardName ? "border-red-500" : "border-gray-300"
+                            errors.cardName
+                              ? "border-red-500"
+                              : "border-gray-300"
                           }`}
                           placeholder="John Doe"
                         />
                         {errors.cardName && (
-                          <p className="text-red-500 text-xs mt-1">{errors.cardName}</p>
+                          <p className="text-red-500 text-xs mt-1">
+                            {errors.cardName}
+                          </p>
                         )}
                       </div>
                     </div>
@@ -482,7 +704,10 @@ export default function Checkout() {
                   className="w-4 h-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded mt-1"
                 />
                 <div className="ml-3">
-                  <label htmlFor="saveInfo" className="text-sm font-medium text-gray-900 cursor-pointer">
+                  <label
+                    htmlFor="saveInfo"
+                    className="text-sm font-medium text-gray-900 cursor-pointer"
+                  >
                     Save my information for faster checkout
                   </label>
                   <p className="text-xs text-gray-500 mt-1">
@@ -502,11 +727,16 @@ export default function Checkout() {
               {/* Footer Links */}
               <div className="text-center text-xs text-gray-500 space-y-2">
                 <div className="flex items-center justify-center">
-                  <svg className="w-4 h-4 mr-1" viewBox="0 0 24 24" fill="currentColor">
-                  </svg>
-                  <span className="underline cursor-pointer">Free returns and exchanges</span>
+                  <svg
+                    className="w-4 h-4 mr-1"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  ></svg>
+                  <span className="underline cursor-pointer">
+                    Free returns and exchanges
+                  </span>
                 </div>
-                
+
                 <div className="flex items-center justify-center space-x-4">
                   <span>Powered by</span>
                   <strong>stripe</strong>
